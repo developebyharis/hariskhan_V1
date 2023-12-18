@@ -1,7 +1,7 @@
 const appData = {
     about: [
         {
-            desc: "Passionate software engineer with a proven track record of developing robust and scalable applications. Excels in designing elegant solutions to complex problems, leveraging expertise in full-stack development and cutting-edge technologies"
+            desc: "Haris Khan, a Peshawar-based software engineer, excels in crafting sophisticated solutions, demonstrating advanced technical skills, and pushing the boundaries of innovation in software development."
         }
     ],
     socials: [

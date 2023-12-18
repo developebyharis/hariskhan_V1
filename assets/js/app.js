@@ -19,7 +19,7 @@ function app() {
           <img src="${project.image}" alt="${project.name}" class="w-[3.6rem] h-[3.4rem] rounded-2xl">
         </div>
         <div class="p-4 text-left mt-[-5.5rem] ml-[4.5rem]">
-          <h1 class=" text-md font-medium uppercase	">${project.name}</h1>
+          <h1 class="text-md font-medium uppercase	">${project.name}</h1>
           <p class="text-gray-700 truncate-lines">${project.desc}</p>
         </div>
         <div class="button flex justify-end items-start absolute inset-2">
@@ -35,7 +35,7 @@ function app() {
     <div class="justify-center items-center lg:px-[8rem] lg:pt-[6rem] md:pt-[6rem] md:px-[8rem] pb-12 h-full">
       <div class="portfolio p-6 sm:ml-auto">
         <div class="desc justify-center pb-5 sm:justify-start">
-          <h1 class="font-semi  text-left text-xl lg:text-left lg:text-3xl md:text-3xl font-sans">${data.about[0].desc}</h1>
+          <h1 class=" text-gray-800 text-left text-xl lg:text-left lg:text-3xl md:text-3xl">${data.about[0].desc}</h1>
         </div>
         <div class="socialLinks flex  relative space-x-2 px-2 py-3 mb-4 overflow-x-auto">
         ${socialsBtn.join("")}
