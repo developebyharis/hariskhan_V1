@@ -49,13 +49,20 @@ const appHTML = app(data);
 appContainer.innerHTML = appHTML;
 
 function projectDetail(project) {
-    const techStackCont = project.detail.techStack.frontend.map((tech) => {
+    const frontendTechStack = project.detail.techStack.frontend.map((tech) => {
+      return `<p class="border border-zinc-200 rounded-lg px-4 py-2">${tech}</p>`;
+    });
+    const backendTechStack = project.detail.techStack.backend.map((tech) => {
+        return `<p class="border border-zinc-200 rounded-lg px-4 py-2">${tech}</p>`;
+      });
+      const databaseTechStack = project.detail.techStack.database.map((tech) => {
       return `<p class="border border-zinc-200 rounded-lg px-4 py-2">${tech}</p>`;
     });
     
   
     return `
-    <div class=" pl-4 mt-4 cursor-pointer relative group pb-[9px] border-zinc-200 border rounded-lg">
+    <div class=" lg:p-9 md:p-9 sm:p-9">
+    <div class="pl-2 sm:pl-6 md:pl-9 lg:pl-9 mt-4 cursor-pointer relative group pb-[9px] border-zinc-200 border rounded-lg">
     <div class="pt-4 ">
       <img src="${project.image}" alt="${project.name}" class="w-[4.6rem] h-[4.4rem] rounded-2xl">
     </div>
@@ -66,11 +73,20 @@ function projectDetail(project) {
     <div class="button flex justify-end items-start absolute inset-2">
       <button class="bg-gray-50 border border-zinc-300 px-3 rounded-full view-btn">close</button>
     </div>
-    <h2 class="text-lg text-left pb-5 pt-10">Tech:</h2>
+    <h2 class="text-lg text-left pb-3 pt-10">Tech:</h2>
     <h1 class="text-xs text-left pb-2 ml-3">Frontend:</h1>
     <div class="flex space-x-3  ml-3 overflow-x-auto">
-    ${techStackCont.join("")}
+    ${frontendTechStack.join("")}
     </div>
+    <h1 class="text-xs text-left pb-2 ml-3 pt-2">Backend:</h1>
+    <div class="flex space-x-3  ml-3 overflow-x-auto">
+    ${backendTechStack.join("")}
+    </div>
+    <h1 class="text-xs text-left pb-2 ml-3 pt-2">Database:</h1>
+    <div class="flex space-x-3 ml-3 overflow-x-auto">
+    ${databaseTechStack.join("")}
+    </div>
+  </div>
   </div>
       
                `;
