@@ -7,15 +7,15 @@ const appData = {
     socials: [
         {
             name: "Linkedin",
-            link: "",
+            link: "https://www.linkedin.com/in/muhammad-haris-khan-4aba42229/",
         },
         {
             name: "Github",
-            link: "",
+            link: "https://github.com/developebyharis",
         },
         {
             name: "Twitter",
-            link: "",
+            link: "https://twitter.com/CodeByHaris",
         },
         {
             name: "CV",
