@@ -5,7 +5,7 @@ function app() {
    
   const socialsBtn = data.socials.map((social) => {
     return `
-      <a href="${social.link}" >
+      <a href="${social.link}" target="_blanck">
         <button class="bg-gray-100 px-3 py-1 hover:bg-gray-200 focus:outline outline-blue-400 rounded-full sm:px-4">${social.name}</button>
       </a>
     `;
