@@ -39,7 +39,7 @@ function cvPage() {
         return `
         <div class="grid grid-cols-1 sm:grid-cols-4 gap-1">
                 <div class="col-span-1 sm:col-span-1">
-                    <p class="data text-gray-600">${project.status === "completed" ? project.completedYear : project.status}</p>
+                    <p class="data text-gray-400">${project.status === "completed" ? project.completedYear : project.status}</p>
                 </div>
                 <div class="col-span-1 sm:col-span-3">
                     <a href="${project.link}">
