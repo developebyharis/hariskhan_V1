@@ -105,7 +105,12 @@ function cvPage() {
     <div class="aboutMe">
         <div class="img absolute">
             <img src="${data.about[0].image}" class="w-[6rem] h-auto rounded-full" alt="${data.about[0].name}">
+            <div class="ring-container absolute mt-[-3rem] right-10">
+    <div class="ringring"></div>
+    <div class="circle"></div>
+</div>
         </div>
+        
         <div class="info text-left  pl-[7rem]">
             <h1 class="font-medium text-2xl">${data.about[0].name}</h1>
             <p class="text-gray-700 pb-1">${data.about[0].profession} in ${data.about[0].live}</p>

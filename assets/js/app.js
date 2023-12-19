@@ -16,6 +16,7 @@ function app() {
       <div class="project-container view-btn cursor-pointer relative group pb-[9px] hover:border-zinc-400 border-zinc-200 border bg-gray-50 hover:bg-gray-100 rounded-lg">
         <div class="p-4">
           <img src="${project.image}" alt="${project.name}" class="w-[3.3rem] h-[3.2rem] object-cover rounded-2xl">
+          
         </div>
         <div class="p-4 text-left mt-[-5.5rem] ml-[4.5rem]">
           <h1 class="text-md font-medium uppercase">${project.name}</h1>
