@@ -23,7 +23,7 @@ function cvPage() {
 
     const projectCont = data.projects.map((project) => {
         const projectImages = project.detail.images.map((img) => {
-            return `<img src="${img}" class="rounded-xl w-[10rem] h-[6rem]" alt="">`;
+            return `<img src="${img}" class="rounded-xl w-auto object-cover h-[7rem]" alt="">`;
         });
         const techStack = project.detail.techStack;
 
@@ -122,12 +122,14 @@ function cvPage() {
         <h1 class="text-sm text-gray-700">About:</h1>
         <p class="text-sm text-gray-700 pl-2 md:pl-2 lg:pl-0 pt-2">${data.about[0].desc}</p>
     </div>
-    <div class="exp pt-[4rem]">
+    
+            
+        ${experiencCont.length > 0 ? `<div class="exp pt-[4rem]">
         <h1 class="text-gray-700 ">Work Experience</h1>
         <div class="expData pt-6 text-md pt-6 pl-2 md:pl-2 lg:pl-0 space-y-10 text-gray-700">
-            ${experiencCont.join("")}
-        </div>
-    </div>
+        ${experiencCont.join("")}  </div>
+        </div>` : '' }
+       
     <div class="project pt-[4rem]">
         <h1 class="text-gray-700 ">Projects</h1>
         <div class="projectData pt-6 pl-2 md:pl-2 lg:pl-0 text-md space-y-10 text-gray-700">

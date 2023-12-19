@@ -15,7 +15,7 @@ function app() {
     return `
       <div class="project-container view-btn cursor-pointer relative group pb-[9px] hover:border-zinc-400 border-zinc-200 border bg-gray-50 hover:bg-gray-100 rounded-lg">
         <div class="p-4">
-          <img src="${project.image}" alt="${project.name}" class="w-[3.6rem] h-[3.4rem] rounded-2xl">
+          <img src="${project.image}" alt="${project.name}" class="w-[3.3rem] h-[3.2rem] object-cover rounded-2xl">
         </div>
         <div class="p-4 text-left mt-[-5.5rem] ml-[4.5rem]">
           <h1 class="text-md font-medium uppercase">${project.name}</h1>
@@ -60,11 +60,9 @@ function projectDetail(project) {
   });
 
   const projectImages = project.detail.images.map((image) => {
-    return `<img src="${image}" class="rounded-xl w-[40rem] h-auto" alt="">`;
+    return `<img src="${image}" class="rounded-xl max-w-[30rem] w-auto h-[20rem] object-cover" alt="">`;
   });
-  const description = project.detail.documentation.info.map((desc) => {
-    return `<p class="text-left  text-sm">${desc}</p>`;
-});
+ 
 const features = project.detail.documentation.features.map((desc) => {
   return `<p class="text-left  text-sm">${desc}</p>`;
 });
@@ -77,9 +75,9 @@ const problems = project.detail.documentation.problems.map((desc) => {
     <div class="lg:p-9 md:p-9 sm:p-9 overflow-y-auto h-screen">
       <div class="pl-2 sm:pl-6 md:pl-9 lg:pl-9 mt-4 relative group pb-[9px] border-zinc-200 border rounded-lg">
         <div class="pt-4">
-          <img src="${project.image}" alt="${project.name}" class="w-[4.6rem] h-[4.4rem] rounded-2xl">
+        <img src="${project.image}" alt="${project.name}" class="w-[4.1rem] h-[4rem] object-cover rounded-2xl">
         </div>
-        <div class="pt-4 text-left mt-[-5.5rem] pr-2 ml-[5.5rem]">
+        <div class="pt-4 text-left mt-[-5rem] pr-2 ml-[5.5rem]">
           <h1 class="text-2xl font-medium uppercase">${project.name}</h1>
           <p class="text-gray-700 truncate-lines">${project.desc}</p>
         </div>
@@ -110,23 +108,18 @@ const problems = project.detail.documentation.problems.map((desc) => {
           </div>
         </div>
         <div class="doc pt-12 space-y-8">
-        <div class="info">
-        <h1 class="text-left text-lg font-semibold">About:</h1>
-        <p class="text-left text-md">Here is some info related to the project</p>
-        ${description.join("")}
-        </div>
-        <div class="info">
+        <div class="problem space-y-4">
         <h1 class="text-left text-lg font-semibold">Problem:</h1>
         <p class="text-left text-md">Here is some info related to the project</p>
         ${problems.join("")}
         </div>
-        <div class="info">
+        <div class="feature space-y-4">
         <h1 class="text-left text-lg font-semibold">Features:</h1>
         <p class="text-left text-md">Here is some info related to the project</p>
         ${features.join("")}
         </div>
       <div class="links py-5 text-left relative">
-      <a href="${project.link}"><button class="bg-gray-200 border border-gray-700 cursor-pointer rounded-lg hover:bg-gray-200 px-5 py-1">Visit</button></a>
+      <a href="${project.link}" target="_blanck"><button class="bg-gray-200 border border-gray-700 cursor-pointer rounded-lg hover:bg-gray-200 px-5 py-1">Visit</button></a>
       </div>
     </div>
    `;
