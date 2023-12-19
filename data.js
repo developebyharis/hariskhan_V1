@@ -1,7 +1,34 @@
 const appData = {
     about: [
         {
-            desc: "Haris Khan, a Peshawar-based software engineer, excels in crafting sophisticated solutions, demonstrating advanced technical skills, and pushing the boundaries of innovation in software development."
+            image: "/assets/images/haris.jpg",
+            name: "Haris Khan",
+            live: "Peshawar Pakistan",
+            profession: "Software Enginner",
+            desc: "Haris Khan, a Peshawar-based software engineer, excels in crafting sophisticated solutions, demonstrating advanced technical skills, and pushing the boundaries of innovation in software development.",
+
+            experience: [
+                {
+                    review: "it was a good experince",
+                    company: "Google",
+                    link:"",
+                    position: "Frontend Engineer",
+                    startingDate: "2021",
+                    endingDate: "Now",
+                    city: "Silicon Velly",
+                    country: "USA"
+                },
+                {
+                    review: "it was a good experince",
+                    company: "Google",
+                    link:"",
+                    position: "Frontend Engineer",
+                    startingDate: "2021",
+                    endingDate: "Now",
+                    city: "Silicon Velly",
+                    country: "USA"
+                },
+            ]
         }
     ],
     socials: [
@@ -19,7 +46,7 @@ const appData = {
         },
         {
             name: "CV",
-            link: "/cv/index.html",
+            link: "/cv.html",
         },
         {
             name: "Email",
@@ -28,6 +55,9 @@ const appData = {
     ],
     projects: [
         {
+            cv_desc: "TEsting cv Desc",
+            status: "Ongoing",
+            completedYear: "2023",
             name: "ICON",
             image: "./assets/images/TikTok-Jump.webp",
             bannerImg: "/assets/images/website/1/original-733f9cf497c8aa22e449c0bda4ee7a1c.png",
@@ -95,6 +125,9 @@ const appData = {
                 }
             }
         },   {
+            cv_desc: "TEsting cv Desc",
+            status: "completed",
+            completedYear: "2023",
             name: "ICON",
             image: "./assets/images/TikTok-Jump.webp",
             bannerImg: "/assets/images/website/1/original-733f9cf497c8aa22e449c0bda4ee7a1c.png",
