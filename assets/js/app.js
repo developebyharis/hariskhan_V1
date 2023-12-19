@@ -50,17 +50,17 @@ appContainer.innerHTML = appHTML;
 
 function projectDetail(project) {
   const frontendTechStack = project.detail.techStack.frontend.map((stack) => {
-    return `<p class="border ${stack.color} rounded-lg px-4 py-2">${stack.tech}</p>`;
+    return `<p class="border ${stack.color} rounded-full px-2">${stack.tech}</p>`;
   });
   const backendTechStack = project.detail.techStack.backend.map((stack) => {
-    return `<p class="border ${stack.color} rounded-lg px-4 py-2">${stack.tech}</p>`;
+    return `<p class="border ${stack.color} rounded-full px-2">${stack.tech}</p>`;
   });
   const databaseTechStack = project.detail.techStack.database.map((stack) => {
-    return `<p class="border ${stack.color} rounded-lg px-4 py-2">${stack.tech}</p>`;
+    return `<p class="border ${stack.color} rounded-full px-2">${stack.tech}</p>`;
   });
 
   const projectImages = project.detail.images.map((image) => {
-    return `<img src="${image}" class="rounded-xl" alt="">`;
+    return `<img src="${image}" class="rounded-xl w-[40rem] h-auto" alt="">`;
   });
   const description = project.detail.documentation.info.map((desc) => {
     return `<p class="text-left  text-sm">${desc}</p>`;
@@ -88,7 +88,7 @@ console.log("project:",description);
           <button class="bg-gray-50 border border-zinc-300 px-3 rounded-full close-btn">close</button>
         </div>
         <div class="techStack relative">
-          <h2 class="text-lg text-left pb-3 pt-10">Tech:</h2>
+          <h2 class="text-left text-lg font-semibold pb-3 pt-10">Tech:</h2>
           ${frontendTechStack.length > 0 ? `
             <h1 class="text-xs text-left pb-2 ml-3">Frontend:</h1>
             <div class="flex space-x-3 ml-3 overflow-x-auto">
@@ -106,7 +106,7 @@ console.log("project:",description);
             </div>` : ''}
         </div>
         <div class="images flex relative pt-[4rem] ">
-          <div class="projectImages flex px-4 cursor-grab pl-[-4px] space-x-7 overflow-x-auto">
+          <div class="projectImages flex px-4 cursor-grab space-x-7 overflow-x-auto">
             ${projectImages.join("")}
           </div>
         </div>
@@ -126,17 +126,14 @@ console.log("project:",description);
         <p class="text-left text-md">Here is some info related to the project</p>
         ${features.join("")}
         </div>
-        <div class="links py-9 text-left">
-      
-
-        <div class="links py-9 text-left">
-      <a href="${project.link}"><button class="bg-gray-300 cursor-pointer rounded-lg hover:bg-gray-200 px-3 py-1">Visit</button></a>
+      <div class="links py-5 text-left relative">
+      <a href="${project.link}"><button class="bg-gray-200 border border-gray-700 cursor-pointer rounded-lg hover:bg-gray-200 px-5 py-1">Visit</button></a>
       </div>
-      </div>
-      
     </div>
    `;
 }
+
+
 
 
 document.addEventListener("click", (event) => {
