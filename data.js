@@ -28,28 +28,63 @@ const appData = {
                     city: "Silicon Velly",
                     country: "USA"
                 },
+            ],
+            awards: [
+                {
+                    name: "one page love Award",
+                    link: "#",
+                    year: "2021",
+                    purpose: "haris.dev",
+                }, {
+                    name: "one page love Award",
+                    link: "#",
+                    year: "2021",
+                    purpose: "haris.dev",
+                }, {
+                    name: "one page love Award",
+                    link: "#",
+                    year: "2021",
+                    purpose: "haris.dev",
+                },
+            ],
+            education: [
+                {
+                    school: "Isamia College peshawar",
+                    degree: "Pre-Engineering",
+                    starting_year: "2022",
+                    ending_year: "2024",
+                    link: "",
+                    location: "Peshawar, Pakistan"
+
+                }
             ]
         }
     ],
     socials: [
         {
             name: "Linkedin",
+            username: "hariskhan",
             link: "https://www.linkedin.com/in/muhammad-haris-khan-4aba42229/",
         },
         {
             name: "Github",
+            username: "hariskhan",
             link: "https://github.com/developebyharis",
         },
         {
             name: "Twitter",
+            username: "hariskhan",
             link: "https://twitter.com/CodeByHaris",
         },
         {
             name: "CV",
+            username: "hariskhan",
+            download_link: "/Muhammad Haris Khan (6).pdf",
             link: "/cv.html",
         },
         {
             name: "Email",
+            username: "hariskhan",
             link: "mailto:mhariskhan129@gmail.com",
         }
     ],
