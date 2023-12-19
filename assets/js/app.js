@@ -13,7 +13,7 @@ function app() {
 
   const projectCont = data.projects.map((project, index) => {
     return `
-      <div class="project-container view-btn cursor-pointer relative group pb-[9px] border-zinc-200 border bg-gray-50 hover:bg-blue-100 rounded-lg">
+      <div class="project-container view-btn cursor-pointer relative group pb-[9px] hover:border-zinc-400 border-zinc-200 border bg-gray-50 hover:bg-gray-100 rounded-lg">
         <div class="p-4">
           <img src="${project.image}" alt="${project.name}" class="w-[3.6rem] h-[3.4rem] rounded-2xl">
         </div>
@@ -72,10 +72,9 @@ const problems = project.detail.documentation.problems.map((desc) => {
   return `<p class="text-left tex--sm">${desc}</p>`;
 });
 
-console.log("project:",description);
 
   return `
-    <div class="lg:p-9 md:p-9 sm:p-9 ">
+    <div class="lg:p-9 md:p-9 sm:p-9 overflow-y-auto h-screen">
       <div class="pl-2 sm:pl-6 md:pl-9 lg:pl-9 mt-4 relative group pb-[9px] border-zinc-200 border rounded-lg">
         <div class="pt-4">
           <img src="${project.image}" alt="${project.name}" class="w-[4.6rem] h-[4.4rem] rounded-2xl">

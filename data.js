@@ -19,7 +19,7 @@ const appData = {
         },
         {
             name: "CV",
-            link: "",
+            link: "/cv/index.html",
         },
         {
             name: "Email",
