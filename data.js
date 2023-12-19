@@ -1,6 +1,7 @@
 const appData = {
     about: [
         {
+            status: "work",
             image: "/assets/images/haris.jpg",
             name: "Haris Khan",
             live: "Peshawar Pakistan",
