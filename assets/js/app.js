@@ -49,58 +49,112 @@ const appHTML = app(data);
 appContainer.innerHTML = appHTML;
 
 function projectDetail(project) {
-    const frontendTechStack = project.detail.techStack.frontend.map((tech) => {
-      return `<p class="border border-zinc-200 rounded-lg px-4 py-2">${tech}</p>`;
-    });
-    const backendTechStack = project.detail.techStack.backend.map((tech) => {
-        return `<p class="border border-zinc-200 rounded-lg px-4 py-2">${tech}</p>`;
-      });
-      const databaseTechStack = project.detail.techStack.database.map((tech) => {
-      return `<p class="border border-zinc-200 rounded-lg px-4 py-2">${tech}</p>`;
-    });
-    
-  
-    return `
-    <div class=" lg:p-9 md:p-9 sm:p-9">
-    <div class="pl-2 sm:pl-6 md:pl-9 lg:pl-9 mt-4 cursor-pointer relative group pb-[9px] border-zinc-200 border rounded-lg">
-    <div class="pt-4 ">
-      <img src="${project.image}" alt="${project.name}" class="w-[4.6rem] h-[4.4rem] rounded-2xl">
-    </div>
-    <div class="pt-4 text-left mt-[-5rem] ml-[5.5rem]">
-      <h1 class="text-2xl font-medium uppercase">${project.name}</h1>
-      <p class="text-gray-700 truncate-lines">${project.desc}</p>
-    </div>
-    <div class="button flex justify-end items-start absolute inset-2">
-      <button class="bg-gray-50 border border-zinc-300 px-3 rounded-full view-btn">close</button>
-    </div>
-    <h2 class="text-lg text-left pb-3 pt-10">Tech:</h2>
-    <h1 class="text-xs text-left pb-2 ml-3">Frontend:</h1>
-    <div class="flex space-x-3  ml-3 overflow-x-auto">
-    ${frontendTechStack.join("")}
-    </div>
-    <h1 class="text-xs text-left pb-2 ml-3 pt-2">Backend:</h1>
-    <div class="flex space-x-3  ml-3 overflow-x-auto">
-    ${backendTechStack.join("")}
-    </div>
-    <h1 class="text-xs text-left pb-2 ml-3 pt-2">Database:</h1>
-    <div class="flex space-x-3 ml-3 overflow-x-auto">
-    ${databaseTechStack.join("")}
-    </div>
-  </div>
-  </div>
-      
-               `;
-  }
-  
-  
-  
+  const frontendTechStack = project.detail.techStack.frontend.map((stack) => {
+    return `<p class="border ${stack.color} rounded-lg px-4 py-2">${stack.tech}</p>`;
+  });
+  const backendTechStack = project.detail.techStack.backend.map((stack) => {
+    return `<p class="border ${stack.color} rounded-lg px-4 py-2">${stack.tech}</p>`;
+  });
+  const databaseTechStack = project.detail.techStack.database.map((stack) => {
+    return `<p class="border ${stack.color} rounded-lg px-4 py-2">${stack.tech}</p>`;
+  });
 
-// Event listener for the "View" button
+  const projectImages = project.detail.images.map((image) => {
+    return `<img src="${image}" class="rounded-xl" alt="">`;
+  });
+  const description = project.detail.documentation.info.map((desc) => {
+    return `<p class="text-left  text-sm">${desc}</p>`;
+});
+const features = project.detail.documentation.features.map((desc) => {
+  return `<p class="text-left  text-sm">${desc}</p>`;
+});
+const problems = project.detail.documentation.problems.map((desc) => {
+  return `<p class="text-left tex--sm">${desc}</p>`;
+});
+
+console.log("project:",description);
+
+  return `
+    <div class="lg:p-9 md:p-9 sm:p-9 ">
+      <div class="pl-2 sm:pl-6 md:pl-9 lg:pl-9 mt-4 relative group pb-[9px] border-zinc-200 border rounded-lg">
+        <div class="pt-4">
+          <img src="${project.image}" alt="${project.name}" class="w-[4.6rem] h-[4.4rem] rounded-2xl">
+        </div>
+        <div class="pt-4 text-left mt-[-5.5rem] pr-2 ml-[5.5rem]">
+          <h1 class="text-2xl font-medium uppercase">${project.name}</h1>
+          <p class="text-gray-700 truncate-lines">${project.desc}</p>
+        </div>
+        <div class="button flex justify-end items-start absolute inset-2">
+          <button class="bg-gray-50 border border-zinc-300 px-3 rounded-full close-btn">close</button>
+        </div>
+        <div class="techStack relative">
+          <h2 class="text-lg text-left pb-3 pt-10">Tech:</h2>
+          ${frontendTechStack.length > 0 ? `
+            <h1 class="text-xs text-left pb-2 ml-3">Frontend:</h1>
+            <div class="flex space-x-3 ml-3 overflow-x-auto">
+              ${frontendTechStack.join("")}
+            </div>` : ''}
+          ${backendTechStack.length > 0 ? `
+            <h1 class="text-xs text-left pb-2 ml-3 pt-2">Backend:</h1>
+            <div class="flex space-x-3 ml-3 overflow-x-auto">
+              ${backendTechStack.join("")}
+            </div>` : ''}
+          ${databaseTechStack.length > 0 ? `
+            <h1 class="text-xs text-left pb-2 ml-3 pt-2">Database:</h1>
+            <div class="flex space-x-3 ml-3 overflow-x-auto">
+              ${databaseTechStack.join("")}
+            </div>` : ''}
+        </div>
+        <div class="images flex relative pt-[4rem] ">
+          <div class="projectImages flex px-4 cursor-grab pl-[-4px] space-x-7 overflow-x-auto">
+            ${projectImages.join("")}
+          </div>
+        </div>
+        <div class="doc pt-12 space-y-8">
+        <div class="info">
+        <h1 class="text-left text-lg font-semibold">About:</h1>
+        <p class="text-left text-md">Here is some info related to the project</p>
+        ${description.join("")}
+        </div>
+        <div class="info">
+        <h1 class="text-left text-lg font-semibold">Problem:</h1>
+        <p class="text-left text-md">Here is some info related to the project</p>
+        ${problems.join("")}
+        </div>
+        <div class="info">
+        <h1 class="text-left text-lg font-semibold">Features:</h1>
+        <p class="text-left text-md">Here is some info related to the project</p>
+        ${features.join("")}
+        </div>
+        <div class="links py-9 text-left">
+      
+
+        <div class="links py-9 text-left">
+      <a href="${project.link}"><button class="bg-gray-300 cursor-pointer rounded-lg hover:bg-gray-200 px-3 py-1">Visit</button></a>
+      </div>
+      </div>
+      
+    </div>
+   `;
+}
+
+
 document.addEventListener("click", (event) => {
   const viewBtn = event.target.closest(".view-btn");
-  if (viewBtn) {
+  const closeBtn = event.target.closest(".close-btn");
+  if(viewBtn) {
     const projectContainer = viewBtn.closest(".project-container");
     const projectIndex = Array.from(projectContainer.parentElement.children).indexOf(projectContainer);
     appContainer.innerHTML = projectDetail(data.projects[projectIndex]);
+
+  } else if (closeBtn) {
+
+    const appHTML = app(data);
+    appContainer.innerHTML = appHTML;
+
   }
-});
+})
+
+
+
+

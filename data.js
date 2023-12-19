@@ -32,6 +32,7 @@ const appData = {
             image: "./assets/images/TikTok-Jump.webp",
             bannerImg: "/assets/images/website/1/original-733f9cf497c8aa22e449c0bda4ee7a1c.png",
             desc: "hello world hello worldhello worldhello ",
+            link: "#",
             detail:{
                 images: [
                     '/assets/images/website/1/original-733f9cf497c8aa22e449c0bda4ee7a1c.png',
@@ -39,7 +40,7 @@ const appData = {
                     '/assets/images/website/1/website1.png'
                 
                 ],
-                doc: {
+                documentation: {
                     info: [
                         "Hello World testing",
                         "Hello World testing",
@@ -63,21 +64,32 @@ const appData = {
                 },
                 techStack: {
                     frontend: [
-                        'HTML',
-                        'CSS',
-                        'JavaScript',
-                        'Next.js'
+                        {
+                            tech: "HTML",
+                            color: "bg-orange-200 border-orange-600",
+
+                        },
+                        {
+                            tech: "CSS",
+                            color: "bg-blue-200 border-blue-600",
+                        },
+                        
 
                     ],
                     backend: [
-                        'python',
-                        'JavaScript',
-                        'Node.js'
+                        {
+                            tech: "Python",
+                            color: "bg-blue-200 border-blue-600",
+
+                        },
 
                     ],
                     database: [
-                        'SQL',
-                        'MongoDB',
+                        {
+                            tech: "MongoDB",
+                            color: "bg-green-300 border-green-700",
+
+                        },
 
                     ],
                 }

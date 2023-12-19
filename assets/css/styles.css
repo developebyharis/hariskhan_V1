@@ -10,6 +10,15 @@ body {
   }
 
 
+/* Add the transition class for the project detail container */
+.project-detail-container {
+  transition: translateY(100%);
+}
+
+/* Specify the initial position of the project detail container */
+.project-detail-container.hidden {
+  transform: translateY(100%);
+}
 
 
 .truncate-lines {
