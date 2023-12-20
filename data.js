@@ -114,6 +114,10 @@ const appData = {
                             tech: "TailwindCSS",
                             color: "bg-blue-200 border-blue-600",
                         },
+                        {
+                            tech: "JavaScript",
+                            color: "bg-yellow-100 border-yellow-400",
+                        },
                         
 
                     ],

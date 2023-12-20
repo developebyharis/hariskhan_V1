@@ -23,14 +23,14 @@ function app() {
           <p class="text-gray-700 truncate-lines">${project.desc}</p>
         </div>
         <div class="button flex justify-end items-start absolute inset-2">
-          <button class="bg-blue-50 border border-zinc-300 hover:bg-gray-200 px-3 rounded-full view-btn">View</button>
+          <button class="bg-gray-50 border border-zinc-400 hover:border-zinc-600 hover:bg-gray-100 px-3 rounded-full view-btn">View</button>
         </div>
       </div>
     `;
   });
 
   return `
-    <div class="justify-center items-center lg:px-[8rem] lg:pt-[6rem] md:pt-[6rem] md:px-[8rem] pb-12 h-full">
+    <div class="justify-center items-center pt-10 lg:px-[8rem] lg:pt-[6rem] md:pt-[6rem] md:px-[8rem] pb-12 h-full">
       <div class="portfolio p-6 sm:ml-auto">
         <div class="desc justify-center pb-5 sm:justify-start">
           <h1 class="text-gray-800 text-left text-xl lg:text-left lg:text-3xl md:text-3xl">${data.about[0].desc}</h1>
@@ -120,7 +120,7 @@ const problems = project.detail.documentation.problems.map((desc) => {
         ${features.join("")}
         </div>
       <div class="links py-5 text-left relative">
-      <a href="${project.link}" target="_blanck"><button class="bg-gray-200 border border-gray-700 cursor-pointer rounded-lg hover:bg-gray-200 px-5 py-1">Visit</button></a>
+      <a href="${project.link}" target="_blanck"><button class="bg-gray-100 hover:bg-gray-200 hover:border-gray-600 border border-gray-400 cursor-pointer rounded-lg hover:bg-gray-200 px-5 py-1">Visit</button></a>
       </div>
     </div>
    `;
