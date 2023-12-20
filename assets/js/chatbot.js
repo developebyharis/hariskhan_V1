@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <button id="animated-icon" class="animate__animated shadow-2xl bg-black px-[10px] py-[5px] rounded-full  animate__bounce">
             <iconify-icon class="text-4xl mt-[4px] text-white" icon="fluent:bot-20-regular"></iconify-icon>
         </button>
-        <div class="chatbox  shadow-xl rounded-xl" id="chatbox">
+        <div class="chatbox hidden shadow-xl rounded-xl" id="chatbox">
             <div class="chatContainer w-[15rem] border border rounded-xl border-zinc-500 bg-white">
                 <div class="chatHeader flex items-center border-b-[1px] p-2 border-zinc-500">
                     <div class="ring-container mt-[-2.1rem]">
