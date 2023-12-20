@@ -58,14 +58,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const sendChat = document.getElementById("sendChat");
 
     const userInput = ["Hello", "Experience", "Projects"];
-    const botInput = ["hey there", "How are you", "I have 2 years of experience", "I built four projects"];
+    const botInput = ["hey there", "How are you", "I have 2+ years of experience", "I built four projects"];
 
     sendChat.addEventListener('click', () => {
         sendInput();
     });
 
     // Display two default inputs when the page loads
-    output("How much experience do you have?", "I have over two years of experience.");
+    output("How much experience do you have?", "I have over 2+ years of experience.");
 
     function sendInput() {
         let input = chatInput.value.trim();
