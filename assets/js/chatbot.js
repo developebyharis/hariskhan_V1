@@ -57,13 +57,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const chatSection = document.querySelector(".chatSection");
     const sendChat = document.getElementById("sendChat");
 
-    const userInput = ["Hello", "Experience", "Projects"];
-    const botInput = ["hey there", "How are you", "I have 2+ years of experience", "I built four projects"];
+    const userInput = ["Hello", "Name", "who are you?", "Experience", "Projects"];
+    const botInput = ["hey there", "My name is Harois Khan.", "I am a Software Engineer based in Peshawar PK.", "How are you", "I have 2+ years of experience", "I built four projects"];
 
+    
     sendChat.addEventListener('click', () => {
         sendInput();
     });
 
+    chatInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            sendInput();
+        }
+    });
     // Display two default inputs when the page loads
     output("How much experience do you have?", "I have over 2+ years of experience.");
 
