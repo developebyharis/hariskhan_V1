@@ -6,11 +6,11 @@ document.addEventListener("DOMContentLoaded", () => {
     function chatbot() {
         return `
 <div class="absolute right-2 bottom-2 md:right-4 md:bottom-6 lg:right-4 lg:bottom-7 xl:right-7 xl:bottom-9 p-4">
-    <div class="chatbotContainer">
-        <button id="animated-icon" class="animate__animated bg-black px-[10px] py-[5px] rounded-full  animate__bounce">
+    <div class="chatbotContainer ">
+        <button id="animated-icon" class="animate__animated shadow-2xl bg-black px-[10px] py-[5px] rounded-full  animate__bounce">
             <iconify-icon class="text-4xl mt-[4px] text-white" icon="fluent:bot-20-regular"></iconify-icon>
         </button>
-        <div class="chatbox hidden" id="chatbox">
+        <div class="chatbox  shadow-xl rounded-xl" id="chatbox">
             <div class="chatContainer w-[15rem] border border rounded-xl border-zinc-500 bg-white">
                 <div class="chatHeader flex items-center border-b-[1px] p-2 border-zinc-500">
                     <div class="ring-container mt-[-2.1rem]">
@@ -31,11 +31,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     </button>
                 </div>
-                <div class="chatSection overflow-y-auto h-[10rem] space-y-[5px] relative pt-4 flex-grow">
+                <div class="chatSection  overflow-y-auto h-[10rem] space-y-[5px] relative pt-4 flex-grow">
 
                 </div>
-                <div class=" relative chatInput pt-4">
-                    <div class="inputcontainer border-t-[1px] border-zinc-500 pt-[6px] px-1 flex">
+                <div class=" relative chatInput pt-4 ">
+                    <div class="inputcontainer rounded-lg border-t-[1px] border-zinc-500 pt-[6px] px-1 flex">
                         <input type="text" autocomplete="off" id="userInput" class="rounded-lg focus:outline-none w-full px-3" placeholder="Ask..">
                         <button class="focus:outline-none" id="sendChat">
                             <iconify-icon class="bg-black hover:bg-gray-900 text-white rounded-full p-2 text-xl" icon="material-symbols:send-outline"></iconify-icon>
