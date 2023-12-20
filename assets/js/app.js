@@ -1,5 +1,5 @@
 import data from "/data.js";
-
+document.addEventListener("DOMContentLoaded", () => {
 const appContainer = document.getElementById("app");
 
 function app() {
@@ -149,4 +149,4 @@ document.addEventListener("click", (event) => {
 
 
 
-
+});
