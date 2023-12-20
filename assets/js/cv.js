@@ -8,7 +8,7 @@ function cvPage() {
         return `
 <div class="grid grid-cols-1 sm:grid-cols-4 gap-1">
     <div class="col-span-1 sm:col-span-1">
-        <p class="data text-gray-600">${exp.startingDate} - ${exp.endingDate}</p>
+        <p class="data text-gray-600">${exp.starting_date} - ${exp.ending_date}</p>
     </div>
     <div class="col-span-1 sm:col-span-3">
         <a href="${exp.link}">

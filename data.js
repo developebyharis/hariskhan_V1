@@ -9,6 +9,16 @@ const appData = {
             desc: "Haris Khan, a Peshawar-based software engineer, excels in crafting sophisticated solutions, demonstrating advanced technical skills, and pushing the boundaries of innovation in software development.",
 
             experience: [
+                {
+                    starting_date: "2022",
+                    ending_date: "Current",
+                    link: "#",
+                    position: "Frontend Developer",
+                    company: "Upwork & Fiver",
+                    city: "Peshawar",
+                    country: "PK",
+
+                },
                 
                
             ],
@@ -66,13 +76,13 @@ const appData = {
         },
         {
             name: "CV",
-            username: "hariskhan",
+            username: "Haris Khan",
             download_link: "/Muhammad Haris Khan (6).pdf",
             link: "/cv.html",
         },
         {
             name: "Email",
-            username: "hariskhan",
+            username: "Haris Khan",
             link: "mailto:mhariskhan129@gmail.com",
         }
     ],
