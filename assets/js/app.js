@@ -42,6 +42,8 @@ function app() {
           ${projectCont.join("")}
         </div>
       </div>
+      <div class="chatbot" id="chatbot">
+      </div>
     </div>
   `;
 }
