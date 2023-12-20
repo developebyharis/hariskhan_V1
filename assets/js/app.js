@@ -48,8 +48,6 @@ function app() {
   `;
 }
 
-const appHTML = app(data);
-appContainer.innerHTML = appHTML;
 
 function projectDetail(project) {
   const frontendTechStack = project.detail.techStack.frontend.map((stack) => {
@@ -128,9 +126,6 @@ const problems = project.detail.documentation.problems.map((desc) => {
    `;
 }
 
-
-
-
 document.addEventListener("click", (event) => {
   const viewBtn = event.target.closest(".view-btn");
   const closeBtn = event.target.closest(".close-btn");
@@ -143,10 +138,10 @@ document.addEventListener("click", (event) => {
 
     const appHTML = app(data);
     appContainer.innerHTML = appHTML;
-
+    window.location.reload(); // Reload the window
   }
 })
 
-
-
+const appHTML = app(data);
+appContainer.innerHTML = appHTML;
 });
