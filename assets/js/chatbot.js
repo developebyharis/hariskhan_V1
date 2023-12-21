@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="chatHeader flex items-center border-b-[1px] p-2 border-zinc-500">
                     <div class="ring-container mt-[-2.1rem]">
                         <div class="ringring"></div>
-                        <div class="circle"></div>
+                        <div class="circle border-2 border-white"></div>
                     </div>
                     <div class="avatar-container outline w-[35px] h-[35px] outline-green-600 outline-offset-2 outline-2 bg-black ">
 

@@ -107,7 +107,7 @@ function cvPage() {
             <img src="${data.about[0].image}" class="w-[6rem] h-auto rounded-full" alt="${data.about[0].name}">
             ${data.about[0].status === 'work' ? `<div class="ring-container absolute mt-[-3rem] right-10">
             <div class="ringring"></div>
-            <div class="circle"></div>
+            <div class="circle border-2 border-white"></div>
         </div>` : ''}
             
         </div>
