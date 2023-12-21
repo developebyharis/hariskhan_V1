@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", () => {
   const chatbotContainer = document.getElementById("chatbot");
 
@@ -55,53 +56,65 @@ document.addEventListener("DOMContentLoaded", () => {
   const chatSection = document.querySelector(".chatSection");
   const sendChat = document.getElementById("sendChat");
 
-  const userInput = ["Hello", "Name", "who are you?", "Experience", "Projects"];
-  const botInput = [
-    "hey there",
-    "My name is Harois Khan.",
-    "I am a Software Engineer based in Peshawar PK.",
-    "How are you",
-    "I have 2+ years of experience",
-    "I built four projects",
+  const chatData = [
+    { keyword: "hello", response: "Hey there" },
+    { keyword: "how", response: "I am a machine; I have no feelings. By the way, Haris is feeling good" },
+    { keyword: "name", response: "My name is Haris Khan." },
+    { keyword: "who", response: "I am a Software Engineer based in Peshawar PK." },
+    { keyword: "experience", response: "I have 2+ years of experience." },
+    { keyword: "projects", response: "I built more than 20 projects." },
   ];
-
+  
   sendChat.addEventListener("click", () => {
     sendInput();
   });
-
+  
   chatInput.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
       sendInput();
     }
   });
+  
   // Display two default inputs when the page loads
-  output(
-    "How much experience do you have?",
-    "I have over 2+ years of experience."
-  );
-
+  output("How much experience do you have?", "I have over 2+ years of experience.");
+  
   function sendInput() {
     let input = chatInput.value.trim();
     if (input !== "") {
-      const matchedIndex = userInput.findIndex((phrase) =>
-        input.toLowerCase().includes(phrase.toLowerCase())
+      // Check for an exact match in the chatData array
+      const exactMatchIndex = chatData.findIndex(
+        (entry) => input.toLowerCase() === entry.keyword.toLowerCase()
       );
-      if (matchedIndex !== -1) {
-        const botResponse = botInput[matchedIndex];
+  
+      // If there's an exact match, use the corresponding response
+      if (exactMatchIndex !== -1) {
+        const botResponse = chatData[exactMatchIndex].response;
         output(input, botResponse);
       } else {
-        output(input, "I'm not sure how to respond to that.");
+        // If no exact match, check for partial matches
+        const partialMatchIndex = chatData.findIndex((entry) =>
+          input.toLowerCase().includes(entry.keyword.toLowerCase())
+        );
+  
+        if (partialMatchIndex !== -1) {
+          const botResponse = chatData[partialMatchIndex].response;
+          output(input, botResponse);
+        } else {
+          output(input, "I'm not sure how to respond to that.");
+        }
       }
       chatInput.value = "";
     }
   }
-
+  
   function output(userInput, botResponse) {
     const userChatHTML = addUserChat(userInput);
     const botChatHTML = addBotChat(botResponse);
     chatSection.innerHTML += userChatHTML + botChatHTML;
     chatSection.scrollTop = chatSection.scrollHeight;
-  }
+  
+  
+}
 
   function addUserChat(user) {
     return `
