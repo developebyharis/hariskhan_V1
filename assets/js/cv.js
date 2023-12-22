@@ -183,7 +183,9 @@ function cvPage() {
             ${contactCont.join("")}
         </div>
     </div>
+    
 </div>
+
 
 `;
 }

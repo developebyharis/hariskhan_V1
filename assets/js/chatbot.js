@@ -1,4 +1,4 @@
-
+import chatData from "/botData.js";
 document.addEventListener("DOMContentLoaded", () => {
   const chatbotContainer = document.getElementById("chatbot");
 
@@ -56,28 +56,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const chatSection = document.querySelector(".chatSection");
   const sendChat = document.getElementById("sendChat");
 
-  const chatData = [
-    { keyword: "hello", response: "Hey there" },
-    { keyword: "how", response: "I am a machine; I have no feelings. By the way, Haris is feeling good" },
-    { keyword: "name", response: "My name is Haris Khan." },
-    { keyword: "who", response: "I am a Software Engineer based in Peshawar PK." },
-    { keyword: "experience", response: "I have 2+ years of experience." },
-    { keyword: "projects", response: "I built more than 20 projects." },
-  ];
-  
   sendChat.addEventListener("click", () => {
     sendInput();
   });
-  
+
   chatInput.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
       sendInput();
     }
   });
-  
+
   // Display two default inputs when the page loads
-  output("How much experience do you have?", "I have over 2+ years of experience.");
-  
+  output(
+    "How much experience do you have?",
+    "I have over 2+ years of experience."
+  );
+
   function sendInput() {
     let input = chatInput.value.trim();
     if (input !== "") {
@@ -85,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const exactMatchIndex = chatData.findIndex(
         (entry) => input.toLowerCase() === entry.keyword.toLowerCase()
       );
-  
+
       // If there's an exact match, use the corresponding response
       if (exactMatchIndex !== -1) {
         const botResponse = chatData[exactMatchIndex].response;
@@ -95,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const partialMatchIndex = chatData.findIndex((entry) =>
           input.toLowerCase().includes(entry.keyword.toLowerCase())
         );
-  
+
         if (partialMatchIndex !== -1) {
           const botResponse = chatData[partialMatchIndex].response;
           output(input, botResponse);
@@ -106,15 +100,13 @@ document.addEventListener("DOMContentLoaded", () => {
       chatInput.value = "";
     }
   }
-  
+
   function output(userInput, botResponse) {
     const userChatHTML = addUserChat(userInput);
     const botChatHTML = addBotChat(botResponse);
     chatSection.innerHTML += userChatHTML + botChatHTML;
     chatSection.scrollTop = chatSection.scrollHeight;
-  
-  
-}
+  }
 
   function addUserChat(user) {
     return `
