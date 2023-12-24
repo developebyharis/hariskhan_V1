@@ -37,17 +37,17 @@ const chatData = [
   {
     keyword: "education",
     response:
-      "I hold a Bachelor's degree in Computer Science from [Your University]. My academic background provides a strong foundation for my work in software engineering.",
+      "I hold a Bachelor's degree in Computer Science from National University of Engineering Technology (NUST). My academic background provides a strong foundation for my work in software engineering.",
   },
   {
     keyword: "github",
     response:
-      "You can explore my GitHub profile at github.com/hariskhan. I actively contribute to open-source projects and showcase my coding skills there.",
+      "You can explore my GitHub profile at github.com/developebyharis. I actively contribute to open-source projects and showcase my coding skills there.",
   },
   {
     keyword: "certifications",
     response:
-      "I am certified as an AWS Certified Developer and have experience in implementing cloud solutions for various projects.",
+      "I am certified as an JavaScript Certified Developer and have experience in implementing Web solutions for various projects.",
   },
   {
     keyword: "mentorship",
