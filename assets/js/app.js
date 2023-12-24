@@ -173,7 +173,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const rgb = getAverageRGB(imageElement);
       const projectBackground = document.getElementById("projectDetail");
      let DynamicBgColor = projectBackground.style.backgroundColor = `rgb(${rgb.r},${rgb.g},${rgb.b})`;
-     console.log(DynamicBgColor)
 
       // Set the text color based on background brightness for elements with the class "textColor"
       const textElements = document.querySelectorAll(".textColor");
