@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     return `
     <div class="lg:p-2 md:p-2 sm:p-2 overflow-y-auto h-screen" id="projectDetail">
-      <div class="pl-2 sm:pl-3 md:pl-5 lg:pl-5 mt-4 relative group pb-[9px] rounded-lg">
+      <div class="pl-2  sm:pl-3 md:pl-5 lg:pl-5 mt-4 relative group pb-[9px] rounded-lg">
         <div class="pt-4">
         <img src="${project.image}" alt="${
       project.name
@@ -125,13 +125,13 @@ document.addEventListener("DOMContentLoaded", () => {
             ${projectImages.join("")}
           </div>
         </div>
-        <div class="doc pt-12 space-y-8">
+        <div class="doc pt-12 space-y-8 pr-2">
         <div class="problem space-y-4">
         <h1 class="text-left text-lg textColor font-semibold">Problem:</h1>
         <p class="text-left textColor text-md">Here is some info related to the project</p>
         ${problems.join("")}
         </div>
-        <div class="feature space-y-4">
+        <div class="feature space-y-4 pr-2">
         <h1 class="text-left text-lg textColor font-semibold">Features:</h1>
         <p class="text-left text-md textColor">Here is some info related to the project</p>
         ${features.join("")}
