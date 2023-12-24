@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     return `
     <div class="lg:p-9 md:p-9 sm:p-9 overflow-y-auto h-screen" id="projectDetail">
-      <div class="pl-2 sm:pl-6 md:pl-9 lg:pl-9 mt-4 relative group pb-[9px] border-zinc-200 border rounded-lg">
+      <div class="pl-2 sm:pl-6 md:pl-9 lg:pl-9 mt-4 relative group pb-[9px] rounded-lg">
         <div class="pt-4">
         <img src="${project.image}" alt="${
       project.name
@@ -172,7 +172,8 @@ document.addEventListener("DOMContentLoaded", () => {
     imageElement.onload = () => {
       const rgb = getAverageRGB(imageElement);
       const projectBackground = document.getElementById("projectDetail");
-      projectBackground.style.backgroundColor = `rgb(${rgb.r},${rgb.g},${rgb.b})`;
+     let DynamicBgColor = projectBackground.style.backgroundColor = `rgb(${rgb.r},${rgb.g},${rgb.b})`;
+     console.log(DynamicBgColor)
 
       // Set the text color based on background brightness for elements with the class "textColor"
       const textElements = document.querySelectorAll(".textColor");
@@ -186,6 +187,12 @@ document.addEventListener("DOMContentLoaded", () => {
         // Adjust the brightness threshold as needed
         return brightness > 128; // You can adjust this threshold based on your preference
       }
+
+      // Set the CSS variable value based on the project background color
+      const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+      metaThemeColor.content = DynamicBgColor;
+
+    // Set the text color based on background brightness
     };
   }
 
