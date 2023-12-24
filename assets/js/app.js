@@ -74,8 +74,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     return `
-    <div class="lg:p-9 md:p-9 sm:p-9 overflow-y-auto h-screen" id="projectDetail">
-      <div class="pl-2 sm:pl-6 md:pl-9 lg:pl-9 mt-4 relative group pb-[9px] rounded-lg">
+    <div class="lg:p-2 md:p-2 sm:p-2 overflow-y-auto h-screen" id="projectDetail">
+      <div class="pl-2 sm:pl-3 md:pl-5 lg:pl-5 mt-4 relative group pb-[9px] rounded-lg">
         <div class="pt-4">
         <img src="${project.image}" alt="${
       project.name
