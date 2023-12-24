@@ -1,86 +1,439 @@
 const chatData = [
-    { keyword: "hello", response: "Hey there" },
-    { keyword: "how", response: "I am a machine; I have no feelings. By the way, Haris is feeling good" },
-    { keyword: "name", response: "My name is Haris Khan." },
-    { keyword: "who", response: "I am a Software Engineer based in Peshawar PK." },
-    { keyword: "experience", response: "I have 2+ years of experience." },
-    { keyword: "projects", response: "I built more than 20 projects." },
-    { keyword: "hi", response: "Hello! How's it going?" },
-    { keyword: "good morning", response: "Good morning! Ready to tackle the day?" },
-    { keyword: "weather", response: "The weather today is [dynamic response based on a weather API]." },
-    { keyword: "news", response: "I haven't checked the news today. Anything interesting happening?" },
-    { keyword: "time", response: "It's currently [dynamic response based on the current time]." },
-    { keyword: "music", response: "I love music! What's your favorite genre or artist?" },
-    { keyword: "movie", response: "Seen any good movies lately? I'm always looking for recommendations." },
-    { keyword: "book", response: "I enjoy reading too! Any favorite books you'd recommend?" },
-    { keyword: "food", response: "Hungry? What's your favorite cuisine?" },
-    { keyword: "exercise", response: "Staying active is important! What's your favorite way to exercise?" },
-    { keyword: "family", response: "Family is so important. How's yours doing?" },
-    { keyword: "pets", response: "Pets are wonderful! Do you have any furry friends?" },
-    { keyword: "travel", response: "Traveling is a great way to explore. Any favorite travel destinations?" },
-    { keyword: "work", response: "How's work going for you? Busy day?" },
-    { keyword: "school", response: "Education is key! What are you studying or what's your profession?" },
-    { keyword: "technology", response: "Tech is fascinating! Anything in particular you find interesting?" },
-    { keyword: "gaming", response: "I'm a gamer too! What games do you enjoy playing?" },
-    { keyword: "weekend", response: "Looking forward to the weekend? Any plans?" },
-    { keyword: "holidays", response: "Holidays are a special time. Any favorite holiday traditions?" },
-    { keyword: "health", response: "Taking care of your health is important. Any health goals you're working on?" },
-    { keyword: "shopping", response: "Found any great deals lately? I love a good shopping spree!" },
-    { keyword: "technology", response: "Technology is ever-evolving. What's the latest tech gadget you've come across?" },
-    { keyword: "dreams", response: "Dreams can be fascinating. Have any interesting dreams lately?" },
-    { keyword: "goals", response: "Setting goals is essential. What goals are you currently working towards?" },
-    { keyword: "hobbies", response: "Hobbies are a great way to unwind. What hobbies do you enjoy?" },
-    { keyword: "inspiration", response: "Inspiration can come from anywhere. What inspires you?" },
-    { keyword: "friendship", response: "Friends are like stars. How do you nurture your friendships?" },
-    { keyword: "love", response: "Love is a beautiful thing. What does love mean to you?" },
-    { keyword: "technology", response: "Technology is constantly evolving. Have you tried any new apps or software lately?" },
-    { keyword: "podcast", response: "I love podcasts! Any favorite podcast recommendations?" },
-    { keyword: "coffee", response: "Coffee or tea? What's your go-to beverage to kickstart your day?" },
-    { keyword: "goals", response: "Setting goals is crucial for personal growth. What are your short-term goals?" },
-    { keyword: "motivation", response: "Staying motivated can be a challenge. How do you stay motivated?" },
-    { keyword: "vacation", response: "Dream vacation destination? I'd love to hear about it!" },
-    { keyword: "art", response: "Art has a unique way of expressing emotions. Do you have a favorite art form or artist?" },
-    { keyword: "tech gadgets", response: "The world of tech gadgets is vast. Any recent gadget that caught your eye?" },
-    { keyword: "creativity", response: "Creativity knows no bounds. How do you nurture your creative side?" },
-    { keyword: "goals", response: "Setting and achieving goals is a fulfilling journey. What's a recent goal you accomplished?" },
-    { keyword: "celebration", response: "Life is full of reasons to celebrate. What's the last thing you celebrated?" },
-    { keyword: "mindfulness", response: "Mindfulness is key to a balanced life. How do you practice mindfulness?" },
-    { keyword: "learning", response: "Continuous learning is a lifelong journey. What's something new you've learned recently?" },
-    { keyword: "technology", response: "The rapid pace of technological advancement is astounding. What tech trend fascinates you?" },
-    { keyword: "podcast", response: "Podcasts are a great way to absorb information. Any favorite podcast episodes?" },
-    { keyword: "exercise", response: "Finding the right exercise routine is crucial. What's your favorite type of workout?" },
-    { keyword: "community", response: "Building a sense of community is important. How do you connect with your community?" },
-    { keyword: "laughter", response: "Laughter is the best medicine. What's something that never fails to make you laugh?" },
-    { keyword: "nature", response: "Nature has a calming effect. Do you have a favorite outdoor spot?" },
-    { keyword: "positivity", response: "Staying positive in challenging times is admirable. How do you maintain a positive mindset?" },
-    { keyword: "music", response: "Music has the power to uplift. What's a song that always boosts your mood?" },
-    { keyword: "hobbies", response: "Engaging in hobbies is a great way to unwind. What hobby do you find most relaxing?" },
-    { keyword: "technology", response: "Tech has transformed the way we live. How has technology positively impacted your life?" },
-    { keyword: "reflection", response: "Reflection is important for personal growth. What's something you've recently reflected upon?" },
-    { keyword: "gratitude", response: "Practicing gratitude can bring joy. What are you grateful for today?" },
-    { keyword: "travel", response: "Traveling broadens horizons. What's a memorable travel experience you've had?" },
-    { keyword: "friendship", response: "True friendships are priceless. How do you nurture your friendships?" },
-    { keyword: "love", response: "Love comes in many forms. What's something you love doing in your free time?" },
-    { keyword: "technology", response: "Tech trends are always changing. What's a technology you're excited about in the future?" },
-    { keyword: "podcast", response: "Podcasts cover a wide range of topics. Do you prefer educational or entertaining podcasts?" },
-    { keyword: "food", response: "Food brings people together. What's your favorite dish or cuisine?" },
-    { keyword: "self-care", response: "Self-care is crucial for well-being. How do you practice self-care?" },
-    { keyword: "motivation", response: "Motivation keeps us moving forward. What's a quote that inspires you?" },
-    { keyword: "technology", response: "The tech world is dynamic. How do you stay updated on the latest tech news?" },
-    { keyword: "book", response: "Books open up new worlds. Any recent book recommendations?" },
-    { keyword: "goals", response: "Setting goals gives direction. What's a long-term goal you're working towards?" },
-    { keyword: "mindfulness", response: "Mindfulness is about being present. How do you incorporate mindfulness into your daily routine?" },
-    { keyword: "happiness", response: "Happiness is a journey. What's something that never fails to make you happy?" },
-    { keyword: "creativity", response: "Creativity is a beautiful expression. How do you tap into your creative side?" },
-    { keyword: "technology", response: "Technology has changed communication. What's your preferred mode of communication?" },
-    { keyword: "podcast", response: "Podcasts offer diverse perspectives. Do you have a favorite genre of podcasts?" },
-    { keyword: "exercise", response: "Exercise is a stress reliever. What's your favorite way to stay active?" },
-    { keyword: "community", response: "Building a sense of community is important. How do you contribute to your community?" },
-    { keyword: "laughter", response: "Laughter is contagious. What's a joke or funny story you recently heard?" },
-    { keyword: "nature", response: "Nature is therapeutic. Do you have a favorite outdoor activity?" },
-    { keyword: "positivity", response: "Positive vibes attract positive outcomes. How do you maintain a positive outlook?" },
-    { keyword: "music", response: "Music is a universal language. What's a song that resonates with you on a deep level?" },
-    { keyword: "hobbies", response: "Hobbies bring joy. What's a hobby you can spend hours doing?" },
-  ];
+  {
+    keyword: "hello",
+    response:
+      "Hey there! How can I assist you with your software engineering inquiries?",
+  },
+  { keyword: "hi", response: "Hello! How's it going?" },
+  {
+    keyword: "good morning",
+    response: "Good morning! Ready to tackle the day?",
+  },
+  {
+    keyword: "name",
+    response:
+      "I'm Haris Khan, a Software Engineer based in Peshawar, Pakistan.",
+  },
+  {
+    keyword: "who",
+    response:
+      "I am a Software Engineer with expertise in Java, Python, and JavaScript.",
+  },
+  {
+    keyword: "experience",
+    response:
+      "I have over 2 years of experience as a Software Engineer, specializing in Java, Python, and JavaScript.",
+  },
+  {
+    keyword: "projects",
+    response:
+      "I've successfully completed more than 20 software projects, ranging from web development to microservices architecture.",
+  },
+  {
+    keyword: "skills",
+    response:
+      "My skills include Java, Python, JavaScript (React, Node.js), database design (SQL, MongoDB), and more. Feel free to ask about specific technologies!",
+  },
+  {
+    keyword: "education",
+    response:
+      "I hold a Bachelor's degree in Computer Science from [Your University]. My academic background provides a strong foundation for my work in software engineering.",
+  },
+  {
+    keyword: "github",
+    response:
+      "You can explore my GitHub profile at github.com/hariskhan. I actively contribute to open-source projects and showcase my coding skills there.",
+  },
+  {
+    keyword: "certifications",
+    response:
+      "I am certified as an AWS Certified Developer and have experience in implementing cloud solutions for various projects.",
+  },
+  {
+    keyword: "mentorship",
+    response:
+      "I'm passionate about mentorship! I actively mentor junior developers, sharing my knowledge and fostering growth within the team.",
+  },
+  {
+    keyword: "agile",
+    response:
+      "I am well-versed in Agile methodologies such as Scrum and Kanban, ensuring efficient and collaborative software development processes.",
+  },
+  {
+    keyword: "devops",
+    response:
+      "I have experience in DevOps practices, including setting up CI/CD pipelines with tools like Jenkins, Docker, and Kubernetes.",
+  },
+  {
+    keyword: "coding",
+    response:
+      "Coding is my passion! I enjoy solving complex problems and creating efficient, scalable solutions.",
+  },
+  {
+    keyword: "web development",
+    response:
+      "I specialize in web development, creating responsive and user-friendly interfaces using technologies like React and Node.js.",
+  },
+  {
+    keyword: "backend",
+    response:
+      "I have expertise in backend development, designing robust server-side applications and APIs.",
+  },
+  {
+    keyword: "frontend",
+    response:
+      "Frontend development is one of my strengths, crafting engaging and intuitive user experiences with HTML, CSS, and JavaScript.",
+  },
+  {
+    keyword: "microservices",
+    response:
+      "I'm experienced in building scalable and maintainable applications using microservices architecture.",
+  },
+  {
+    keyword: "restful apis",
+    response:
+      "I design and implement RESTful APIs, enabling seamless communication between different components of a system.",
+  },
+  {
+    keyword: "mvc architecture",
+    response:
+      "I follow the MVC architecture pattern to ensure the separation of concerns and maintainability in my projects.",
+  },
+  {
+    keyword: "database design",
+    response:
+      "I excel in database design, working with both SQL and NoSQL databases to optimize data storage and retrieval.",
+  },
+  {
+    keyword: "sql",
+    response:
+      "I'm proficient in SQL, utilizing it to manage and query relational databases for efficient data handling.",
+  },
+  {
+    keyword: "nosql",
+    response:
+      "I have experience working with NoSQL databases like MongoDB, ensuring flexibility and scalability in data storage.",
+  },
+  {
+    keyword: "spring boot",
+    response:
+      "I leverage Spring Boot for developing robust and scalable backend services in Java applications.",
+  },
+  {
+    keyword: "django",
+    response:
+      "Django is one of my preferred frameworks for building secure and maintainable web applications using Python.",
+  },
+  {
+    keyword: "express.js",
+    response:
+      "I use Express.js to create efficient and scalable server-side applications in JavaScript.",
+  },
+  {
+    keyword: "git",
+    response:
+      "Git is my version control tool of choice, enabling collaborative and organized development workflows.",
+  },
+  {
+    keyword: "github",
+    response:
+      "GitHub is where I showcase my projects, collaborate with others, and contribute to open-source initiatives.",
+  },
+  {
+    keyword: "version control",
+    response:
+      "I emphasize the importance of version control, utilizing tools like Git to track changes and collaborate effectively.",
+  },
+  {
+    keyword: "agile methodologies",
+    response:
+      "I embrace Agile methodologies such as Scrum and Kanban to facilitate adaptive and collaborative software development.",
+  },
+  {
+    keyword: "scrum",
+    response:
+      "I am well-versed in Scrum practices, fostering collaboration and adaptability in software development projects.",
+  },
+  {
+    keyword: "kanban",
+    response:
+      "Kanban is part of my toolkit for visualizing and optimizing workflow, ensuring efficient project management.",
+  },
+  {
+    keyword: "aws",
+    response:
+      "I am familiar with AWS services, utilizing the cloud platform for scalable, reliable, and cost-effective solutions.",
+  },
+  {
+    keyword: "azure",
+    response:
+      "Azure is a cloud platform I've worked with, providing robust services for diverse software applications.",
+  },
+  {
+    keyword: "google cloud platform",
+    response:
+      "I have experience with Google Cloud Platform, leveraging its services for various cloud-based solutions.",
+  },
+  {
+    keyword: "serverless architecture",
+    response:
+      "I design serverless architectures, utilizing functions as a service (FaaS) for efficient and scalable applications.",
+  },
+  {
+    keyword: "docker",
+    response:
+      "Docker is part of my containerization strategy, ensuring consistency and portability in software deployment.",
+  },
+  {
+    keyword: "kubernetes",
+    response:
+      "I use Kubernetes for orchestrating containerized applications, facilitating efficient scaling and management.",
+  },
+  {
+    keyword: "cloud computing",
+    response:
+      "Cloud computing is integral to my projects, providing flexibility and scalability in infrastructure.",
+  },
+  {
+    keyword: "mobile development",
+    response:
+      "I specialize in cross-platform mobile development, using technologies like React Native for efficient app development.",
+  },
+  {
+    keyword: "react native",
+    response:
+      "React Native is my preferred framework for developing cross-platform mobile applications with a single codebase.",
+  },
+  {
+    keyword: "continuous integration",
+    response:
+      "Continuous Integration (CI) is a key practice in my projects, ensuring automated and frequent code integration for quality assurance.",
+  },
+  {
+    keyword: "continuous deployment",
+    response:
+      "Continuous Deployment (CD) is part of my workflow, automating the release process for efficient and reliable software delivery.",
+  },
+  {
+    keyword: "code review",
+    response:
+      "Code reviews are a crucial part of my development process, fostering collaboration and ensuring high code quality.",
+  },
+  {
+    keyword: "code quality",
+    response:
+      "I prioritize code quality, following best practices and conducting thorough code reviews for optimal software performance.",
+  },
+  {
+    keyword: "clean code",
+    response:
+      "Clean code is essential in my projects, promoting readability, maintainability, and collaboration among team members.",
+  },
+  {
+    keyword: "design patterns",
+    response:
+      "I apply design patterns such as Singleton, Factory, and Observer to ensure efficient and scalable software architecture.",
+  },
+  {
+    keyword: "algorithms",
+    response:
+      "Strong knowledge of algorithms is fundamental to my work, enabling efficient problem-solving and optimized code.",
+  },
+  {
+    keyword: "data structures",
+    response:
+      "I have a solid understanding of data structures, employing them to enhance the efficiency of software applications.",
+  },
+  {
+    keyword: "scalability",
+    response:
+      "Scalability is a priority in my projects, and I implement strategies for both horizontal and vertical scalability.",
+  },
+  {
+    keyword: "performance optimization",
+    response:
+      "Performance optimization is integral to my development process, ensuring efficient and responsive software applications.",
+  },
+  {
+    keyword: "security",
+    response:
+      "I prioritize security in my projects, implementing measures to safeguard against common web vulnerabilities.",
+  },
+  {
+    keyword: "encryption",
+    response:
+      "Data encryption is a key component of my security strategy, ensuring the confidentiality of sensitive information.",
+  },
+  {
+    keyword: "authentication",
+    response:
+      "Implementing secure authentication methods is crucial in my projects, ensuring user data is protected.",
+  },
+  {
+    keyword: "authorization",
+    response:
+      "Authorization mechanisms are carefully implemented in my projects to control access and protect resources.",
+  },
+  {
+    keyword: "oauth",
+    response:
+      "I am familiar with OAuth, providing secure and standardized authorization for third-party integrations.",
+  },
+  {
+    keyword: "json web tokens",
+    response:
+      "JSON Web Tokens (JWT) are part of my authentication strategy, ensuring secure and stateless user authentication.",
+  },
+  {
+    keyword: "web services",
+    response:
+      "I develop RESTful APIs to facilitate communication between server and client applications in a standardized and efficient manner.",
+  },
+  {
+    keyword: "api design",
+    response:
+      "Designing clean and intuitive APIs is a priority in my projects, ensuring seamless integration with external systems.",
+  },
+  {
+    keyword: "graphql",
+    response:
+      "I have experience with GraphQL, providing a flexible and efficient alternative to traditional REST APIs.",
+  },
+  {
+    keyword: "websocket",
+    response:
+      "WebSocket technology is part of my real-time communication strategy, facilitating efficient and bidirectional communication.",
+  },
+  {
+    keyword: "internet of things",
+    response:
+      "I integrate software with Internet of Things (IoT) devices, enabling connectivity and control in diverse applications.",
+  },
+  {
+    keyword: "machine learning",
+    response:
+      "I collaborate with data science teams to integrate machine learning models, enhancing the intelligence of software applications.",
+  },
+  {
+    keyword: "artificial intelligence",
+    response:
+      "Artificial Intelligence (AI) is an area of interest, and I explore its applications to enhance software capabilities.",
+  },
+  {
+    keyword: "natural language processing",
+    response:
+      "Natural Language Processing (NLP) is a fascinating field I explore to enable human-like interactions in software applications.",
+  },
+  {
+    keyword: "automation",
+    response:
+      "I implement automation to streamline repetitive tasks, improving development efficiency and reducing manual effort.",
+  },
+  {
+    keyword: "scripting",
+    response:
+      "Scripting is a valuable skill in my toolkit, allowing for the automation of various tasks and processes.",
+  },
+  {
+    keyword: "bash",
+    response:
+      "Bash scripting is part of my automation strategy, enabling efficient and scriptable interactions with the command line.",
+  },
+  {
+    keyword: "shell",
+    response:
+      "Shell scripting enhances my automation capabilities, providing flexibility and control over system-level tasks.",
+  },
+  {
+    keyword: "linux",
+    response:
+      "Linux is my preferred operating system, providing a stable and customizable environment for software development.",
+  },
+  {
+    keyword: "windows",
+    response:
+      "I am proficient in developing software for Windows environments, ensuring cross-platform compatibility.",
+  },
+  {
+    keyword: "cross-browser compatibility",
+    response:
+      "I ensure cross-browser compatibility for web applications, delivering a consistent user experience across different browsers.",
+  },
+  {
+    keyword: "ux/ui design",
+    response:
+      "I collaborate with designers to ensure a seamless and visually appealing user experience in software applications.",
+  },
+  {
+    keyword: "user-centered design",
+    response:
+      "User-centered design principles are integral to my work, prioritizing the needs and preferences of end-users.",
+  },
+  {
+    keyword: "wireframing",
+    response:
+      "Wireframing is part of my design process, providing a visual representation of software interfaces before development.",
+  },
+  {
+    keyword: "prototyping",
+    response:
+      "Prototyping helps validate design concepts, and I actively engage in prototyping to refine and improve user interfaces.",
+  },
+  {
+    keyword: "a/b testing",
+    response:
+      "I implement A/B testing strategies to experiment with and optimize features based on user feedback and preferences.",
+  },
+  {
+    keyword: "user stories",
+    response:
+      "I translate user requirements into actionable development tasks, ensuring a user-centric approach in software development.",
+  },
+  {
+    keyword: "product management",
+    response:
+      "I collaborate with product management teams to align software development with overall business goals and user needs.",
+  },
+  {
+    keyword: "project management",
+    response:
+      "Project management is a key aspect of my role, and I use tools like Jira and Trello for effective project organization.",
+  },
+  {
+    keyword: "jira",
+    response:
+      "Jira is my go-to project management tool, providing a comprehensive platform for tracking tasks, issues, and project progress.",
+  },
+  {
+    keyword: "trello",
+    response:
+      "Trello is part of my project management toolkit, providing a visual and collaborative approach to task management.",
+  },
+  {
+    keyword: "confluence",
+    response:
+      "Confluence is my choice for documentation and collaboration, ensuring comprehensive and accessible project knowledge.",
+  },
+  {
+    keyword: "documentation",
+    response:
+      "Thorough documentation is a priority in my projects, providing clear guidelines for code, processes, and system architecture.",
+  },
+  {
+    keyword: "technical writing",
+    response:
+      "I contribute to technical documentation, ensuring clear and concise communication of technical concepts to various audiences.",
+  },
+  {
+    keyword: "blogging",
+    response:
+      "I engage in blogging about software architecture, best practices, and emerging trends in the software engineering field.",
+  },
+  {
+    keyword: "open source",
+    response:
+      "I actively contribute to open-source projects, fostering collaboration and knowledge-sharing within the developer community.",
+  },
+];
 
-  export default chatData;
+export default chatData;

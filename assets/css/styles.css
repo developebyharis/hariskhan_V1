@@ -1,9 +1,10 @@
+
+
 body {
     -webkit-user-select: none; /* Chrome, Safari, Opera */
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* IE 10+ */
     user-select: none; /* Standard syntax */ 
-    
     font-family: 'Bodoni Moda', serif;
     font-family: 'DM Serif Display', serif;
     font-family: 'Rubik', sans-serif;
@@ -82,3 +83,5 @@ overflow: hidden;
 .chatSection::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
 }
+
+

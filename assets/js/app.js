@@ -1,4 +1,5 @@
 import data from "/data.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   const appContainer = document.getElementById("app");
 
@@ -62,18 +63,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const projectImages = project.detail.images.map((image) => {
-      return `<img src="${image}" class="rounded-xl max-w-[30rem] w-auto h-[20rem] object-cover" alt="">`;
+      return `<img src="${image}" id="i" class="rounded-xl max-w-[30rem] w-auto h-[20rem] object-cover" alt="">`;
     });
 
     const features = project.detail.documentation.features.map((desc) => {
-      return `<p class="text-left  text-sm">${desc}</p>`;
+      return `<p class="text-left textColor text-sm">${desc}</p>`;
     });
     const problems = project.detail.documentation.problems.map((desc) => {
-      return `<p class="text-left tex--sm">${desc}</p>`;
+      return `<p class="text-left textColor texy-sm">${desc}</p>`;
     });
 
     return `
-    <div class="lg:p-9 md:p-9 sm:p-9 overflow-y-auto h-screen">
+    <div class="lg:p-9 md:p-9 sm:p-9 overflow-y-auto h-screen" id="projectDetail">
       <div class="pl-2 sm:pl-6 md:pl-9 lg:pl-9 mt-4 relative group pb-[9px] border-zinc-200 border rounded-lg">
         <div class="pt-4">
         <img src="${project.image}" alt="${
@@ -81,18 +82,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }" class="w-[4.1rem] h-[4rem] object-cover rounded-2xl">
         </div>
         <div class="pt-4 text-left mt-[-5rem] pr-2 ml-[5.5rem]">
-          <h1 class="text-2xl font-medium uppercase">${project.name}</h1>
-          <p class="text-gray-700 truncate-lines">${project.desc}</p>
+          <h1 class="text-2xl textColor font-medium uppercase">${
+            project.name
+          }</h1>
+          <p class=" textColor truncate-lines">${project.desc}</p>
         </div>
         <div class="button flex justify-end items-start absolute inset-2">
-          <button class="bg-gray-50 border border-zinc-300 px-3 rounded-full close-btn">close</button>
+          <button class="bg-red-200 hover:bg-red-500 border border-red-400 hover:border-red-700 px-3 rounded-full close-btn">close</button>
         </div>
         <div class="techStack relative">
-          <h2 class="text-left text-lg font-semibold pb-3 pt-10">Tech:</h2>
+          <h2 class="text-left textColor text-lg font-semibold pb-3 pt-10">Tech:</h2>
           ${
             frontendTechStack.length > 0
               ? `
-            <h1 class="text-xs text-left pb-2 ml-3">Frontend:</h1>
+            <h1 class="text-xs text-left textColor pb-2 ml-3">Frontend:</h1>
             <div class="flex space-x-3 ml-3 overflow-x-auto">
               ${frontendTechStack.join("")}
             </div>`
@@ -101,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
           ${
             backendTechStack.length > 0
               ? `
-            <h1 class="text-xs text-left pb-2 ml-3 pt-2">Backend:</h1>
+            <h1 class="text-xs text-left pb-2 textColor ml-3 pt-2">Backend:</h1>
             <div class="flex space-x-3 ml-3 overflow-x-auto">
               ${backendTechStack.join("")}
             </div>`
@@ -110,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
           ${
             databaseTechStack.length > 0
               ? `
-            <h1 class="text-xs text-left pb-2 ml-3 pt-2">Database:</h1>
+            <h1 class="text-xs text-left pb-2 textColor ml-3 pt-2">Database:</h1>
             <div class="flex space-x-3 ml-3 overflow-x-auto">
               ${databaseTechStack.join("")}
             </div>`
@@ -124,19 +127,19 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <div class="doc pt-12 space-y-8">
         <div class="problem space-y-4">
-        <h1 class="text-left text-lg font-semibold">Problem:</h1>
-        <p class="text-left text-md">Here is some info related to the project</p>
+        <h1 class="text-left text-lg textColor font-semibold">Problem:</h1>
+        <p class="text-left textColor text-md">Here is some info related to the project</p>
         ${problems.join("")}
         </div>
         <div class="feature space-y-4">
-        <h1 class="text-left text-lg font-semibold">Features:</h1>
-        <p class="text-left text-md">Here is some info related to the project</p>
+        <h1 class="text-left text-lg textColor font-semibold">Features:</h1>
+        <p class="text-left text-md textColor">Here is some info related to the project</p>
         ${features.join("")}
         </div>
       <div class="links py-5 text-left relative">
       <a href="${
         project.link
-      }" target="_blanck"><button class="bg-gray-100 hover:bg-gray-200 hover:border-gray-600 border border-gray-400 cursor-pointer rounded-lg hover:bg-gray-200 px-5 py-1">Visit</button></a>
+      }" target="_blank"><button class="bg-gray-100 hover:bg-gray-200 hover:border-gray-600 border border-gray-400 cursor-pointer rounded-lg hover:bg-gray-200 px-5 py-1">Visit</button></a>
       </div>
     </div>
    `;
@@ -151,6 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
         projectContainer.parentElement.children
       ).indexOf(projectContainer);
       appContainer.innerHTML = projectDetail(data.projects[projectIndex]);
+      setProjectDetailBackgroundColor(data.projects[projectIndex]);
     } else if (closeBtn) {
       const appHTML = app(data);
       appContainer.innerHTML = appHTML;
@@ -160,4 +164,89 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const appHTML = app(data);
   appContainer.innerHTML = appHTML;
+
+  function setProjectDetailBackgroundColor(project) {
+    const imageElement = new Image();
+    imageElement.src = project.image;
+
+    imageElement.onload = () => {
+      const rgb = getAverageRGB(imageElement);
+      const projectBackground = document.getElementById("projectDetail");
+      projectBackground.style.backgroundColor = `rgb(${rgb.r},${rgb.g},${rgb.b})`;
+
+      // Set the text color based on background brightness for elements with the class "textColor"
+      const textElements = document.querySelectorAll(".textColor");
+      textElements.forEach((textElement) => {
+        textElement.style.color = isBackgroundLight(rgb) ? "black" : "white";
+      });
+
+      function isBackgroundLight(color) {
+        const brightness =
+          (color.r * 299 + color.g * 587 + color.b * 114) / 1000;
+        // Adjust the brightness threshold as needed
+        return brightness > 128; // You can adjust this threshold based on your preference
+      }
+    };
+  }
+
+  function getAverageRGB(imgEl) {
+    var blockSize = 5,
+      defaultRGB = {
+        r: 0,
+        g: 0,
+        b: 0,
+      },
+      canvas = document.createElement("canvas"),
+      context = canvas.getContext && canvas.getContext("2d"),
+      data,
+      width,
+      height,
+      i = -4,
+      length,
+      rgb = {
+        r: 0,
+        g: 0,
+        b: 0,
+      },
+      count = 0;
+
+    if (!context) {
+      return defaultRGB;
+    }
+
+    height = canvas.height =
+      imgEl.naturalHeight || imgEl.offsetHeight || imgEl.height;
+    width = canvas.width =
+      imgEl.naturalWidth || imgEl.offsetWidth || imgEl.width;
+
+    context.drawImage(imgEl, 0, 0);
+
+    try {
+      data = context.getImageData(0, 0, width, height);
+    } catch (e) {
+      console.error("Error getting image data:", e);
+      return defaultRGB;
+    }
+
+    length = data.data.length;
+
+    while ((i += blockSize * 4) < length) {
+      ++count;
+      rgb.r += data.data[i];
+      rgb.g += data.data[i + 1];
+      rgb.b += data.data[i + 2];
+    }
+
+    rgb.r = ~~(rgb.r / count);
+    rgb.g = ~~(rgb.g / count);
+    rgb.b = ~~(rgb.b / count);
+
+    // Adjust the color to make it lighter (you can change these values)
+    var lightnessFactor = 5;
+    rgb.r = Math.min(255, rgb.r + lightnessFactor);
+    rgb.g = Math.min(255, rgb.g + lightnessFactor);
+    rgb.b = Math.min(255, rgb.b + lightnessFactor);
+
+    return rgb;
+  }
 });
