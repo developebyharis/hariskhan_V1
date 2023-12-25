@@ -109,7 +109,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function addUserChat(user) {
-    // Check for links in user input and convert them to clickable links
     const userWithLinks = convertLinks(user);
 
     return `
@@ -121,7 +120,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function addBotChat(bot) {
-    // Check for links in bot response and convert them to clickable links
     const botWithLinks = convertLinks(bot);
 
     return `
@@ -136,11 +134,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const urlRegex = /(https?:\/\/\S+|www\.\S+)/gi;
 
     return text.replace(urlRegex, (url) => {
+      let displayText = url;
       if (url.startsWith("www.")) {
         url = "https://" + url;
       }
 
-      return `<a href="${url}" target="_blank" class="underline underline-offset-2" rel="noopener noreferrer">${url}</a>`;
+      // Find the relevant chatData object based on the URL
+      const matchedData = chatData.find((data) => {
+        return url.startsWith("https://")
+          ? url.includes(data.keyword)
+          : url.includes("www.") 
+          && url.includes(data.keyword);
+      });
+
+      if (matchedData) {
+        displayText = matchedData.linkName;
+      }
+      return `<a href="${url}" target="_blank" class="underline underline-offset-2" rel="noopener noreferrer">${displayText}</a>`;
     });
   }
 

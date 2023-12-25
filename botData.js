@@ -10,6 +10,12 @@ const chatData = [
     response: "Good morning! Ready to tackle the day?",
   },
   {
+    keyword: "linkedin",
+    response:
+      "I welcome you to connect with me on LinkedIn: https://www.linkedin.com/in/muhammad-haris-khan-4aba42229/. Let's build a professional network and stay connected.",
+    linkName: "Muhammad Haris khan",
+  },
+  {
     keyword: "name",
     response:
       "I'm Haris Khan, a Software Engineer based in Peshawar, Pakistan.",
@@ -43,6 +49,7 @@ const chatData = [
     keyword: "github",
     response:
       "You can explore my GitHub profile at https://github.com/developebyharis. I actively contribute to open-source projects and showcase my coding skills there.",
+    linkName: "Haris",
   },
   {
     keyword: "certifications",
