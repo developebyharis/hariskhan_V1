@@ -113,8 +113,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const userWithLinks = convertLinks(user);
 
     return `
-        <div class="humanChat space-y-[3px] flex flex-col mx-[8px] ml-[3rem] items-end">
-            <div class="chat bg-black text-white rounded-lg py-1  ">
+        <div class="humanChat space-y-[3px] flex flex-col mx-[9px] ml-[3rem] items-end">
+            <div class="chat bg-black text-white rounded-lg py-1 ">
                 <p class="text-sm text-left overflow-y-auto mx-3">${userWithLinks}</p>
             </div>
         </div>`;
@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const botWithLinks = convertLinks(bot);
 
     return `
-        <div class="botchat space-y-[3px] flex flex-col mx-[18px] mr-[3rem] items-start">
+        <div class="botchat space-y-[3px] flex flex-col mx-[9px] mr-[3rem] items-start">
             <div class="chat bg-gray-400 rounded-lg py-1">
                 <p class="text-sm text-left overflow-y-auto mx-3 botLongText">${botWithLinks}</p>
             </div>
