@@ -42,7 +42,7 @@ const chatData = [
   {
     keyword: "github",
     response:
-      "You can explore my GitHub profile at github.com/developebyharis. I actively contribute to open-source projects and showcase my coding skills there.",
+      "You can explore my GitHub profile at https://github.com/developebyharis. I actively contribute to open-source projects and showcase my coding skills there.",
   },
   {
     keyword: "certifications",

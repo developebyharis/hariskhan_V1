@@ -15,13 +15,23 @@ body {
 /* Add the transition class for the project detail container */
 
 .truncate-lines {
-   /* Apply these styles to the element containing the text */
 display: -webkit-box;
 -webkit-box-orient: vertical;
 overflow: hidden;
--webkit-line-clamp: 2; /* Number of lines to show */
+-webkit-line-clamp: 2; 
 
   }
+
+  .botLongText {
+    /* overflow: hidden; */
+    /* display: -webkit-box; */
+    /* -webkit-box-orient: vertical; */
+    /* text-overflow: ellipsis; */
+    width: 20ch; /* Set the width to 5 characters */
+    word-wrap: break-word; 
+  }
+
+
 
  /* HTML: <div class="loader"></div> */
  .ring-container {

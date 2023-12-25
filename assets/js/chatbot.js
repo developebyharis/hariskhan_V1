@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     </button>
                 </div>
-                <div class="chatSection  overflow-y-auto h-[10rem] space-y-[5px] relative pt-4 flex-grow">
+                <div class="chatSection overflow-y-auto h-[10rem] space-y-[5px] relative pt-4 flex-grow">
 
                 </div>
                 <div class=" relative chatInput pt-4 ">
@@ -109,21 +109,39 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function addUserChat(user) {
+    // Check for links in user input and convert them to clickable links
+    const userWithLinks = convertLinks(user);
+
     return `
         <div class="humanChat space-y-[3px] flex flex-col mx-[8px] ml-[3rem] items-end">
             <div class="chat bg-black text-white rounded-lg py-1  ">
-                <p class="text-sm text-right mx-3">${user}</p>
+                <p class="text-sm text-left overflow-y-auto mx-3">${userWithLinks}</p>
             </div>
         </div>`;
   }
 
   function addBotChat(bot) {
+    // Check for links in bot response and convert them to clickable links
+    const botWithLinks = convertLinks(bot);
+
     return `
-        <div class="botchat space-y-[3px] flex flex-col mx-[8px] mr-[3rem] items-start">
+        <div class="botchat space-y-[3px] flex flex-col mx-[18px] mr-[3rem] items-start">
             <div class="chat bg-gray-400 rounded-lg py-1">
-                <p class="text-sm text-left mx-3">${bot}</p>
+                <p class="text-sm text-left overflow-y-auto mx-3 botLongText">${botWithLinks}</p>
             </div>
         </div>`;
+  }
+
+  function convertLinks(text) {
+    const urlRegex = /(https?:\/\/\S+|www\.\S+)/gi;
+
+    return text.replace(urlRegex, (url) => {
+      if (url.startsWith("www.")) {
+        url = "https://" + url;
+      }
+
+      return `<a href="${url}" target="_blank" class="underline underline-offset-2" rel="noopener noreferrer">${url}</a>`;
+    });
   }
 
   function toggleChatbox() {
