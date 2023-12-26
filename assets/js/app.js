@@ -15,7 +15,7 @@ function app() {
   const projectCont = data.projects.map((project) => {
     return `
       <a href="projectDetail.html?name=${project.name}">
-      <div data-project-name="${project.name}" class="project-container cursor-pointer relative pb-[9px] borderColorCont rounded-2xl">
+      <div data-project-name="${project.name}" class="project-container cursor-pointer relative pb-[9px] borderColorCont rounded-2xl" >
         <div class="p-4">
           <img src="${project.image}" alt="${project.name}" class="w-[3.3rem] h-[3.2rem] object-cover shadow rounded-2xl">
           
@@ -81,6 +81,7 @@ function setProjectDetailBackgroundColor(project) {
 
     if (projectContainer) {
       projectContainer.style.backgroundColor = extractedColor;
+      projectContainer.style.boxShadow = `2px 2px 10px rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, .4)`;
     }
 
     // Set the text color based on background brightness for elements with the class "textColor"
