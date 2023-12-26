@@ -49,13 +49,13 @@ const chatData = [
     keyword: "github",
     response:
       "You can explore my GitHub profile at https://github.com/developebyharis. I actively contribute to open-source projects and showcase my coding skills there.",
-       linkName: "developebyharis",
+    linkName: "developebyharis",
   },
   {
     keyword: "certifications",
     response:
       "I am certified as an JavaScript Certified Developer and have experience in implementing Web solutions for various projects.",
-    },
+  },
   {
     keyword: "mentorship",
     response:
