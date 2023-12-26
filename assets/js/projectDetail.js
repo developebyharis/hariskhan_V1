@@ -88,7 +88,7 @@ function projectDetail(project) {
         </div>
         <div class="links py-5 text-left relative">
           <a href="${project.link}" target="_blank">
-            <button id="visitBtn" class=" borderColorCont  cursor-pointer rounded-full px-8 py-2">Visit</button>
+            <button class=" borderColorCont cursor-pointer rounded-full px-8 py-2">Visit</button>
           </a>
         </div>
       </div>
@@ -136,7 +136,7 @@ function setProjectDetailBackgroundColor(project) {
     function isBackgroundLight(color) {
       const brightness = (color.r * 299 + color.g * 587 + color.b * 114) / 1000;
       // Adjust the brightness threshold as needed
-      return brightness > 128; // You can adjust this threshold based on your preference
+      return brightness > 150; // You can adjust this threshold based on your preference
     }
 
     // Set the CSS variable value based on the project background color
