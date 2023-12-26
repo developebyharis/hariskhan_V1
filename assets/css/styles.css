@@ -1,40 +1,43 @@
-
-
 body {
 
-    -webkit-user-select: none; /* Chrome, Safari, Opera */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* IE 10+ */
-    user-select: none; /* Standard syntax */ 
-    font-family: 'Bodoni Moda', serif;
-    font-family: 'DM Serif Display', serif;
-    font-family: 'Rubik', sans-serif;
-  }
+  -webkit-user-select: none;
+  /* Chrome, Safari, Opera */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE 10+ */
+  user-select: none;
+  /* Standard syntax */
+  font-family: 'Bodoni Moda', serif;
+  font-family: 'DM Serif Display', serif;
+  font-family: 'Rubik', sans-serif;
+}
 
 
 /* Add the transition class for the project detail container */
 
 .truncate-lines {
-display: -webkit-box;
--webkit-box-orient: vertical;
-overflow: hidden;
--webkit-line-clamp: 2; 
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
 
-  }
-
-  .botLongText {
-    /* overflow: hidden; */
-    /* display: -webkit-box; */
-    /* -webkit-box-orient: vertical; */
-    /* text-overflow: ellipsis; */
-    width: 20ch; /* Set the width to 5 characters */
-    word-wrap: break-word; 
-  }
+}
 
 
 
- /* HTML: <div class="loader"></div> */
- .ring-container {
+
+.botLongText {
+
+  width: 20ch;
+  /* Set the width to 5 characters */
+  word-wrap: break-word;
+}
+
+
+
+/* HTML: <div class="loader"></div> */
+.ring-container {
   position: relative;
 }
 
@@ -57,20 +60,33 @@ overflow: hidden;
   left: 18px;
   top: 18px;
   -webkit-animation: pulsate 1s ease-out;
-  -webkit-animation-iteration-count: infinite; 
+  -webkit-animation-iteration-count: infinite;
   opacity: 0.0
 }
+
 @-webkit-keyframes pulsate {
-  0% {-webkit-transform: scale(0.1, 0.1); opacity: 0.0;}
-  50% {opacity: 1.0;}
-  100% {-webkit-transform: scale(1.2, 1.2); opacity: 0.0;}
+  0% {
+    -webkit-transform: scale(0.1, 0.1);
+    opacity: 0.0;
+  }
+
+  50% {
+    opacity: 1.0;
+  }
+
+  100% {
+    -webkit-transform: scale(1.2, 1.2);
+    opacity: 0.0;
+  }
 }
 
 
 /* Add these styles to your existing CSS */
 .avatar-container {
-  width: 40px; /* Adjust the size as needed */
-  height: 40px; /* Adjust the size as needed */
+  width: 40px;
+  /* Adjust the size as needed */
+  height: 40px;
+  /* Adjust the size as needed */
   border-radius: 50%;
   overflow: hidden;
 }
@@ -86,13 +102,15 @@ overflow: hidden;
 }
 
 .chatSection {
-  overflow-y: hidden; /* Hide vertical scrollbar */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge */
+  overflow-y: hidden;
+  /* Hide vertical scrollbar */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE/Edge */
 }
 
 .chatSection::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  display: none;
+  /* Chrome, Safari, Opera */
 }
-
-

@@ -7,21 +7,19 @@ document.addEventListener("DOMContentLoaded", () => {
 <div class="absolute right-2 bottom-2 md:right-4 md:bottom-6 lg:right-4 lg:bottom-7 xl:right-7 xl:bottom-9 p-4">
     <div class="chatbotContainer ">
         <button id="animated-icon" class="animate__animated shadow-2xl bg-black px-[10px] py-[5px] rounded-full  animate__bounce">
-            <iconify-icon class="text-4xl mt-[4px] text-white" icon="fluent:bot-20-regular"></iconify-icon>
+            <iconify-icon class="text-3xl mt-[4px] text-white" icon="fluent:chat-12-regular"></iconify-icon>
         </button>
         <div class="chatbox hidden shadow-xl rounded-xl" id="chatbox">
             <div class="chatContainer w-[15rem] border border rounded-xl border-zinc-500 bg-white">
                 <div class="chatHeader flex items-center border-b-[1px] p-2 border-zinc-500">
-                    <div class="ring-container mt-[-2.1rem]">
+                    <div class="ring-container mt-[-2.2rem]">
                         <div class="ringring"></div>
                         <div class="circle border-2 border-white"></div>
                     </div>
-                    <div class="avatar-container outline w-[35px] h-[35px] outline-green-600 outline-offset-2 outline-2 bg-black ">
-
-                        <iconify-icon class="text-3xl ml-[2.3px] mt-[1.3px] text-white" icon="fluent:bot-20-regular"></iconify-icon>
-
+                    <div class="avatar-container w-[35px] h-[35px] ">
+                    <img class="rounded-full" src="/assets/images/haris.jpg" alt="Haris Khan">
                     </div>
-                    <div class="info-container ml-4">
+                    <div class="info-container ml-3">
                         <h1 class="text-sm font-semibold">Haris Khan</h1>
                         <p class="text-xs">Software Engineer</p>
                     </div>
@@ -143,8 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const matchedData = chatData.find((data) => {
         return url.startsWith("https://")
           ? url.includes(data.keyword)
-          : url.includes("www.") 
-          && url.includes(data.keyword);
+          : url.includes("www.") && url.includes(data.keyword);
       });
 
       if (matchedData) {

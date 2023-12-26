@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     return `
-    <div class="justify-center items-center pt-10 lg:px-[8rem] lg:pt-[6rem] md:pt-[6rem] md:px-[8rem] pb-12 h-full">
+    <div class="justify-center  items-center pt-10 lg:px-[8rem] lg:pt-[6rem] md:pt-[6rem] md:px-[8rem] pb-12 h-full">
       <div class="portfolio p-6 sm:ml-auto">
         <div class="desc justify-center pb-5 sm:justify-start">
           <h1 class="text-gray-800 text-left text-xl lg:text-left lg:text-3xl md:text-3xl">${
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     return `
     <div class="lg:p-2 md:p-2 sm:p-2 overflow-y-auto h-screen" id="projectDetail">
-      <div class="pl-2  sm:pl-3 md:pl-5 lg:pl-5 mt-4 relative group pb-[9px] rounded-lg">
+      <div class="pl-2 sm:pl-3 md:pl-5 lg:pl-5  mt-4 relative group pb-[9px] rounded-lg">
         <div class="pt-4">
         <img src="${project.image}" alt="${
       project.name
