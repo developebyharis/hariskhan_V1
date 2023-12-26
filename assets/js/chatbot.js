@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
                 <div class="chatSection overflow-y-auto h-[10rem] space-y-[5px] relative pt-4 flex-grow">
 
+                
                 </div>
                 <div class=" relative chatInput pt-4 ">
                     <div class="inputcontainer rounded-lg border-t-[1px] border-zinc-500 pt-[6px] px-1 flex">
@@ -73,6 +74,11 @@ document.addEventListener("DOMContentLoaded", () => {
   function sendInput() {
     let input = chatInput.value.trim();
     if (input !== "") {
+      // Display user input immediately
+      const userChatHTML = addUserChat(input);
+      chatSection.innerHTML += userChatHTML;
+      chatSection.scrollTop = chatSection.scrollHeight;
+
       // Check for an exact match in the chatData array
       const exactMatchIndex = chatData.findIndex(
         (entry) => input.toLowerCase() === entry.keyword.toLowerCase()
@@ -81,7 +87,11 @@ document.addEventListener("DOMContentLoaded", () => {
       // If there's an exact match, use the corresponding response
       if (exactMatchIndex !== -1) {
         const botResponse = chatData[exactMatchIndex].response;
-        output(input, botResponse);
+        showLoadingIcon();
+        setTimeout(() => {
+          hideLoadingIcon();
+          appendBotResponse(input, botResponse);
+        }, 2000); // 2-second delay
       } else {
         // If no exact match, check for partial matches
         const partialMatchIndex = chatData.findIndex((entry) =>
@@ -90,20 +100,57 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (partialMatchIndex !== -1) {
           const botResponse = chatData[partialMatchIndex].response;
-          output(input, botResponse);
+          showLoadingIcon();
+          setTimeout(() => {
+            hideLoadingIcon();
+            appendBotResponse(input, botResponse);
+          }, 2000); // 2-second delay
         } else {
-          output(input, "I'm not sure how to respond to that.");
+          // If no match, display a default response after the delay
+          showLoadingIcon();
+          setTimeout(() => {
+            hideLoadingIcon();
+            appendBotResponse(input, "I'm not sure how to respond to that.");
+          }, 1000); // 1-second delay
         }
       }
       chatInput.value = "";
     }
   }
 
+  function appendBotResponse(userInput, botResponse) {
+    const botChatHTML = addBotChat(botResponse);
+    chatSection.innerHTML += botChatHTML;
+    chatSection.scrollTop = chatSection.scrollHeight;
+  }
+
+  function showLoadingIcon() {
+    const loadingIconHTML = `
+      <div class="space-y-[3px] loading-icon  flex flex-col mx-[9px] mr-[3rem] items-start">
+          <div class="chat bg-gray-400 rounded-xl py-1">
+              <p class="text-sm text-left w-5 ml-3 overflow-y-auto mx-2 botLongText"><iconify-icon icon="svg-spinners:3-dots-bounce"></iconify-icon></p>
+          </div>
+      </div>`;
+
+    chatSection.innerHTML += loadingIconHTML;
+    chatSection.scrollTop = chatSection.scrollHeight;
+  }
+
   function output(userInput, botResponse) {
+    // Assuming addUserChat and addBotChat are functions that generate HTML for user and bot messages
     const userChatHTML = addUserChat(userInput);
     const botChatHTML = addBotChat(botResponse);
+    // Appending both user and loading icon HTML to the chat section
     chatSection.innerHTML += userChatHTML + botChatHTML;
+    // Scrolling to the bottom of the chat section
     chatSection.scrollTop = chatSection.scrollHeight;
+  }
+
+  function hideLoadingIcon() {
+    const loadingIcon = document.querySelector(".loading-icon");
+    if (loadingIcon) {
+      loadingIcon.remove();
+    }
   }
 
   function addUserChat(user) {
@@ -112,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return `
         <div class="humanChat space-y-[3px] flex flex-col mx-[9px] ml-[3rem] items-end">
             <div class="chat bg-black text-white rounded-lg py-1 ">
-                <p class="text-sm text-left overflow-y-auto mx-3">${userWithLinks}</p>
+                <p class="text-sm text-left overflow-y-auto mx-2">${userWithLinks}</p>
             </div>
         </div>`;
   }
@@ -121,9 +168,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const botWithLinks = convertLinks(bot);
 
     return `
-        <div class="botchat space-y-[3px] flex flex-col mx-[9px] mr-[3rem] items-start">
+        <div class="botchat space-y-[3px]  flex flex-col mx-[9px] mr-[3rem] items-start">
             <div class="chat bg-gray-400 rounded-lg py-1">
-                <p class="text-sm text-left overflow-y-auto mx-3 botLongText">${botWithLinks}</p>
+                <p class="text-sm text-left overflow-y-auto mx-2 botLongText">${botWithLinks}</p>
             </div>
         </div>`;
   }

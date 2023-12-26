@@ -29,8 +29,7 @@ body {
 
 .botLongText {
 
-  width: 20ch;
-  /* Set the width to 5 characters */
+  max-width: 20ch;
   word-wrap: break-word;
 }
 
