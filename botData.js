@@ -13,7 +13,7 @@ const chatData = [
     keyword: "linkedin",
     response:
       "I welcome you to connect with me on LinkedIn: https://www.linkedin.com/in/muhammad-haris-khan-4aba42229/. Let's build a professional network and stay connected.",
-    linkName: "Muhammad Haris khan",
+ 
   },
   {
     keyword: "name",
@@ -49,7 +49,7 @@ const chatData = [
     keyword: "github",
     response:
       "You can explore my GitHub profile at https://github.com/developebyharis. I actively contribute to open-source projects and showcase my coding skills there.",
-    linkName: "developebyharis",
+    
   },
   {
     keyword: "certifications",

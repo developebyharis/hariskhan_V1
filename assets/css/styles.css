@@ -1,20 +1,13 @@
 body {
 
   -webkit-user-select: none;
-  /* Chrome, Safari, Opera */
   -moz-user-select: none;
-  /* Firefox */
   -ms-user-select: none;
-  /* IE 10+ */
   user-select: none;
-  /* Standard syntax */
   font-family: 'Bodoni Moda', serif;
   font-family: 'DM Serif Display', serif;
   font-family: 'Rubik', sans-serif;
 }
-
-
-/* Add the transition class for the project detail container */
 
 .truncate-lines {
   display: -webkit-box;
@@ -24,19 +17,12 @@ body {
 
 }
 
-
-
-
 .botLongText {
 
   max-width: 20ch;
   word-wrap: break-word;
 }
 
-
-
-
-/* HTML: <div class="loader"></div> */
 .ring-container {
   position: relative;
 }
@@ -80,13 +66,9 @@ body {
   }
 }
 
-
-/* Add these styles to your existing CSS */
 .avatar-container {
   width: 40px;
-  /* Adjust the size as needed */
   height: 40px;
-  /* Adjust the size as needed */
   border-radius: 50%;
   overflow: hidden;
 }
@@ -103,14 +85,10 @@ body {
 
 .chatSection {
   overflow-y: hidden;
-  /* Hide vertical scrollbar */
   scrollbar-width: none;
-  /* Firefox */
   -ms-overflow-style: none;
-  /* IE/Edge */
 }
 
 .chatSection::-webkit-scrollbar {
   display: none;
-  /* Chrome, Safari, Opera */
 }

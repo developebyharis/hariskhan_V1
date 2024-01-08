@@ -38,7 +38,7 @@ function projectDetail(project) {
       </div>
       <a href="index.html">
       <div class="button flex justify-end items-start absolute inset-2">
-        <button class="  borderColorCont  px-3 rounded-full close-btn">close</button>
+        <button class="  borderColorCont  px-3 rounded-full close-btn border hover:border-zinc-400 border-zinc-200 hover:bg-black hover:text-white">close</button>
       </div></a>
       <div class="techStack relative">
         <h2 class="text-left textColor text-lg font-semibold pb-3 pt-10">Tech:</h2>
@@ -88,7 +88,7 @@ function projectDetail(project) {
         </div>
         <div class="links py-5 text-left relative">
           <a href="${project.link}" target="_blank">
-            <button class=" borderColorCont cursor-pointer rounded-full px-8 py-2">Visit</button>
+            <button class=" borderColorCont cursor-pointer rounded-full hover:bg-black hover:text-white px-8 border hover:border-zinc-400 border-zinc-200 py-2">Visit</button>
           </a>
         </div>
       </div>
@@ -96,58 +96,6 @@ function projectDetail(project) {
   `;
 }
 
-function setProjectDetailBackgroundColor(project) {
-  const imageElement = new Image();
-  // Ensure the image URL is correct and accessible
-  imageElement.src = project.image;
-
-  imageElement.onload = () => {
-    const rgb = getAverageRGB(imageElement);
-    // Set the background color directly
-    const extractedColor = `rgb(${rgb.r},${rgb.g},${rgb.b})`;
-    document.body.style.backgroundColor = extractedColor;
-
-   
-    // Set the text color based on background brightness for elements with the class "textColor"
-    const textElements = document.querySelectorAll(".textColor");
-    textElements.forEach((textElement) => {
-      textElement.style.color = isBackgroundLight(rgb) ? "black" : "white";
-    });
-
-    const borderColorCont = document.querySelectorAll(".borderColorCont");
-
-    borderColorCont.forEach((element) => {
-      element.classList.add(
-        "border",
-        "border-black",
-        "text-white",
-        "text-black",
-        "border-white"
-      ); // Add all three classes
-
-      // Dynamically remove "border-black" or "border-white" based on background color
-      if (isBackgroundLight(rgb)) {
-        element.classList.remove("border-white", "text-white");
-      } else {
-        element.classList.remove("border-black", "text-black");
-      }
-    });
-
-    function isBackgroundLight(color) {
-      const brightness = (color.r * 299 + color.g * 587 + color.b * 114) / 1000;
-      // Adjust the brightness threshold as needed
-      return brightness > 150; // You can adjust this threshold based on your preference
-    }
-
-    // Set the CSS variable value based on the project background color
-    const metaThemeColor = document.querySelector('meta[name="theme-color"]');
-    metaThemeColor.content = extractedColor;
-  };
-
-  imageElement.onerror = (error) => {
-    console.error("Error loading image:", error);
-  };
-}
 
 const urlParams = new URLSearchParams(window.location.search);
 const name = urlParams.get("name");
@@ -158,58 +106,4 @@ if (!project) {
 } else {
   const projectDetailHTML = projectDetail(project);
   projectDetailContainer.innerHTML = projectDetailHTML;
-  setProjectDetailBackgroundColor(project);
-}
-function getAverageRGB(imgEl) {
-  var blockSize = 5,
-    defaultRGB = {
-      r: 0,
-      g: 0,
-      b: 0,
-    },
-    canvas = document.createElement("canvas"),
-    context = canvas.getContext && canvas.getContext("2d"),
-    data,
-    width,
-    height,
-    i = -4,
-    length,
-    rgb = {
-      r: 0,
-      g: 0,
-      b: 0,
-    },
-    count = 0;
-
-  if (!context) {
-    return defaultRGB;
-  }
-
-  height = canvas.height =
-    imgEl.naturalHeight || imgEl.offsetHeight || imgEl.height;
-  width = canvas.width = imgEl.naturalWidth || imgEl.offsetWidth || imgEl.width;
-
-  context.drawImage(imgEl, 0, 0);
-
-  try {
-    data = context.getImageData(0, 0, width, height);
-  } catch (e) {
-    console.error("Error getting image data:", e);
-    return defaultRGB;
-  }
-
-  length = data.data.length;
-
-  while ((i += blockSize * 4) < length) {
-    ++count;
-    rgb.r += data.data[i];
-    rgb.g += data.data[i + 1];
-    rgb.b += data.data[i + 2];
-  }
-
-  rgb.r = ~~(rgb.r / count);
-  rgb.g = ~~(rgb.g / count);
-  rgb.b = ~~(rgb.b / count);
-
-  return rgb;
 }
